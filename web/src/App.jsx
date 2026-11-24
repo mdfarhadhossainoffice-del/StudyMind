@@ -16,7 +16,7 @@ function AuthPanel({ onDone }) {
     e.preventDefault(); setBusy(true); setError('');
     try {
       if (mode === 'signup') {
-        const { error } = await supabase.auth.signUp({ email, password, options:{ data:{ full_name:name } } });
+        const { error } = await supabase.auth.signUp({ email, password, options:{ data:{ full_name:name }, emailRedirectTo: window.location.origin } });
         if (error) throw error;
         setError('Account created. Check your email if confirmation is enabled, then sign in.');
         setMode('login');
