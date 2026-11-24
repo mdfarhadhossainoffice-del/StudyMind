@@ -65,8 +65,7 @@ function App() {
   useEffect(()=>{
     if (!supabase) { setLoading(false); return; }
     load();
-    const {data:{subscription}} = supabase.auth.onAuthStateChange(()=>load());
-    return ()=>subscription.unsubscribe();
+    // AuthPanel calls load() after a successful sign-in; avoid async work inside auth callbacks.
   },[]);
 
   async function signOut(){await supabase.auth.signOut();setSession(null);setProfile(null);setEnrollments([]);setTab('overview')}
@@ -88,7 +87,7 @@ function App() {
     if(error)setError(error.message);else await load();
   }
 
-  if (!supabase) return <main className="setup"><div className="brand"><b>L</b> lumo</div><span className="eyebrow">PHASE 02 · CONFIGURATION</span><h1>Connect Lumo to its database.</h1><p>The student and admin application is ready for a Supabase project. Add the project URL and publishable/anon key to your local <code>.env.local</code> file.</p><pre>VITE_SUPABASE_URL=your-project-url<br/>VITE_SUPABASE_ANON_KEY=your-publishable-key</pre><p className="muted">Never use a service-role key in the browser. The current Supabase project is paused, so this app will remain in setup mode until an active project is configured.</p></main>;
+  if (!supabase) return <main className="setup"><div className="brand"><b>L</b> lumo</div><span className="eyebrow">PHASE 02 · CONFIGURATION</span><h1>Connect Lumo to its database.</h1><p>The student and admin application is ready for a Supabase project. Add the project URL and publishable/anon key to your local <code>.env.local</code> file.</p><pre>VITE_SUPABASE_URL=your-project-url<br/>VITE_SUPABASE_ANON_KEY=your-publishable-key</pre><p className="muted">Never use a service-role key in the browser. The Lumo Supabase project is active. Copy the values from web/.env.example into web/.env.local to connect this app.</p></main>;
   if (loading) return <main className="setup"><div className="brand"><b>L</b> lumo</div><p>Loading your learning space…</p></main>;
   if (!session) return <main className="auth-wrap"><div className="brand"><b>L</b> lumo</div><AuthPanel onDone={load}/></main>;
 
