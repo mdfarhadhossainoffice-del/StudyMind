@@ -265,8 +265,13 @@ drop policy if exists "students read own attempts" on public.quiz_attempts;
 create policy "students read own attempts" on public.quiz_attempts
 for select to authenticated using (student_id = (select auth.uid()) or public.is_admin());
 drop policy if exists "students create own attempts" on public.quiz_attempts;
-create policy "students create own attempts" on public.quiz_attempts
-for insert to authenticated with check (student_id = (select auth.uid()));
+create policy "students submit ungraded own attempts" on public.quiz_attempts
+for insert to authenticated with check (
+  student_id = (select auth.uid())
+  and score is null
+  and passed is null
+  and submitted_at is null
+);
 drop policy if exists "admins manage attempts" on public.quiz_attempts;
 create policy "admins manage attempts" on public.quiz_attempts
 for all to authenticated using (public.is_admin()) with check (public.is_admin());
