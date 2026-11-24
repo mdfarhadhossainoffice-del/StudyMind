@@ -1,29 +1,45 @@
 # Lumo web application
 
-## Requirements
-- Node.js 20.19+ or 22.12+
-- npm
+## Supabase connection
+The Lumo Supabase project is already created and its database migrations are applied.
+
+1. Copy `.env.example` to `.env.local` in this directory.
+2. Keep the supplied project URL and publishable key, or retrieve the current publishable key from Supabase project settings.
+3. Never place a Supabase service-role/secret key in browser code or commit it.
 
 ## Run locally
-1. Copy `.env.example` to `.env.local`.
-2. Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` using the Supabase project URL and publishable (or legacy anon) key.
-3. From this directory run:
+Requirements: Node.js 20.19+ or 22.12+ and npm.
 
 ```bash
+cp .env.example .env.local
 npm install
 npm run dev
 ```
 
+## First administrator setup
+1. Create your personal account through the app.
+2. In Supabase Dashboard → Authentication → Users, verify the account and copy its user UUID.
+3. In SQL Editor, run the following, replacing the placeholder with that verified UUID:
+
+```sql
+update public.profiles
+set role = 'admin'
+where id = 'PASTE_VERIFIED_USER_UUID_HERE';
+```
+
+Never promote an account based only on an email address supplied by an unverified person.
+
 ## Current functionality
-- Email/password signup and login using Supabase Auth
-- Role-aware student and admin navigation
-- Published course catalog for students
-- Student enrollments list
-- Admin course creation as draft
-- Admin publish/unpublish controls
-- Paid enrollment is intentionally disabled until payment integration is implemented
+- Email/password signup and login
+- Role-aware student and administrator navigation
+- Published course catalog
+- Student enrollments
+- Administrator course creation as draft
+- Administrator publish/unpublish controls
+- Paid enrollment remains disabled until a verified payment integration is implemented
 
-## Important
-The database migration in `../supabase/migrations` must be applied to an active Supabase project before the app can work. Do not expose a Supabase service-role key in browser code. Admin access must be granted manually to a verified user in the SQL editor.
+## Database
+The schema is maintained in `../supabase/migrations`. All core learning tables have Row Level Security enabled. Quiz answer keys are isolated from student-readable question data. Admin access is an explicit operator action.
 
-The existing Supabase project was found paused. No project has been restored, created, or charged by this development step.
+## Cost and security
+The project was created on the Free plan with a $0/month project quote. No paid upgrade or add-on was enabled. Do not enable paid services without explicit cost review and approval.
