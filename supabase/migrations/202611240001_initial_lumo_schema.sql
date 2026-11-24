@@ -217,8 +217,14 @@ drop policy if exists "students read own enrollments" on public.enrollments;
 create policy "students read own enrollments" on public.enrollments
 for select to authenticated using (student_id = (select auth.uid()) or public.is_admin());
 drop policy if exists "students create own enrollments" on public.enrollments;
-create policy "students create own enrollments" on public.enrollments
-for insert to authenticated with check (student_id = (select auth.uid()));
+create policy "students enroll in free courses only" on public.enrollments
+for insert to authenticated with check (
+  student_id = (select auth.uid())
+  and exists (
+    select 1 from public.courses c
+    where c.id = course_id and c.status = 'published' and c.price_bdt = 0
+  )
+);
 drop policy if exists "admins manage enrollments" on public.enrollments;
 create policy "admins manage enrollments" on public.enrollments
 for all to authenticated using (public.is_admin()) with check (public.is_admin());
