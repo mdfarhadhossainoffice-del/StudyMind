@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lumo Pro | Admin Board</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root{font-family:Inter,system-ui,sans-serif;color:#14221d;background:#f5f8f6;--g:#087f5b;--dark:#10231c;--line:#e2e9e5;--muted:#687970}*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:10px;padding:10px 14px;background:var(--g);color:#fff;font-weight:700}button.secondary{background:#e8f1ec;color:#164b38}button.danger{background:#fff0ef;color:#a72b25}input,select,textarea{width:100%;border:1px solid var(--line);background:#fff;border-radius:10px;padding:11px;color:#172820}textarea{min-height:100px;resize:vertical}label{display:block;font-size:12px;font-weight:700;color:#50645a;margin:12px 0 6px}.hidden{display:none!important}.login{min-height:100vh;display:grid;place-items:center;padding:20px;background:linear-gradient(135deg,#0d2119,#184e38)}.loginbox{background:#fff;width:min(440px,100%);padding:32px;border-radius:22px;box-shadow:0 20px 70px #0003}.logo{font-size:28px;font-weight:800;letter-spacing:-1px}.logo span{color:var(--g)}.sub{color:var(--muted);font-size:13px;line-height:1.6}.shell{display:flex;min-height:100vh}.side{width:250px;background:var(--dark);color:#fff;padding:22px 14px;display:flex;flex-direction:column;gap:8px;flex-shrink:0}.side .logo{padding:4px 12px 18px}.side .logo span{color:#5be0a7}.nav{background:transparent;text-align:left;color:#b9cec4;font-weight:600}.nav.active,.nav:hover{background:#20533d;color:#fff}.sidefoot{margin-top:auto;font-size:11px;color:#7e9b8c;padding:12px}.main{flex:1;min-width:0}.top{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:2}.content{padding:26px;max-width:1400px;margin:auto}.page{display:none}.page.active{display:block}.title{font-size:24px;font-weight:800;margin:0 0 5px}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:20px 0}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 4px 15px #193d2910}.num{font-size:30px;font-weight:800;color:var(--g)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.row>*{flex:1}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line);vertical-align:top}th{color:#61746a;font-size:11px;text-transform:uppercase;letter-spacing:.05em}td .actions{display:flex;gap:6px;flex-wrap:wrap}td button{padding:7px 9px;font-size:11px}.pill{display:inline-block;background:#e5f6ed;color:#126a4a;padding:4px 8px;border-radius:20px;font-size:11px;font-weight:700}.msg{padding:10px 12px;border-radius:10px;background:#edf7f1;color:#155e42;font-size:13px;margin:12px 0}.msg.err{background:#fff0ef;color:#a72b25}.small{font-size:11px;color:var(--muted)}.split{display:grid;grid-template-columns:320px 1fr;gap:18px}.stack{display:grid;gap:10px}.item{padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer}.item.sel{border-color:var(--g);background:#f0faf4}.mobile{display:none}@media(max-width:850px){.side{width:64px;padding:12px 6px}.side .logo{font-size:0;padding:8px}.side .logo span{font-size:20px}.nav{font-size:0;text-align:center;padding:12px 5px}.nav:before{content:attr(data-icon);font-size:18px}.sidefoot{display:none}.cards{grid-template-columns:repeat(2,1fr)}.grid,.split{grid-template-columns:1fr}.content{padding:15px}.top{padding:15px}.title{font-size:20px}}
+</style>
+</head>
+<body>
+<div id="login" class="login">
+ <div class="loginbox">
+  <div class="logo">lumo <span>pro</span></div>
+  <p class="sub">Secure administration board. Sign in with your existing Lumo administrator account. Access is verified against the database role—not a browser toggle.</p>
+  <div id="loginmsg" class="msg hidden"></div>
+  <form id="loginform">
+   <label>Email</label><input id="email" type="email" autocomplete="username" required>
+   <label>Password</label><input id="password" type="password" autocomplete="current-password" required>
+   <button style="width:100%;margin-top:18px">Sign in to Admin</button>
+  </form>
+  <p class="small">Only accounts with the database role <b>admin</b> can enter. Students cannot grant themselves admin access.</p>
+ </div>
+</div>
+<div id="app" class="shell hidden">
+ <aside class="side">
+  <div class="logo">lumo <span>pro</span></div>
+  <button class="nav active" data-page="dashboard" data-icon="⌂">Overview</button>
+  <button class="nav" data-page="courses" data-icon="▣">Courses & Lessons</button>
+  <button class="nav" data-page="posts" data-icon="✎">Posts & Announcements</button>
+  <button class="nav" data-page="students" data-icon="♙">Students & Access</button>
+  <button class="nav" data-page="quizzes" data-icon="✓">Quizzes</button>
+  <button class="nav" data-page="certificates" data-icon="♜">Certificates</button>
+  <div class="sidefoot">Lumo Pro Admin<br>Protected by Supabase RLS</div>
+ </aside>
+ <main class="main">
+  <header class="top"><div><b id="pageTitle">Overview</b><div class="small" id="who"></div></div><button class="secondary" id="signout">Sign out</button></header>
+  <div class="content">
+   <div id="notice" class="msg hidden"></div>
+   <section id="dashboard" class="page active">
+    <h1 class="title">Admin overview</h1><p class="sub">Manage the learning experience from one place.</p>
+    <div class="cards">
+     <div class="card"><div class="num" id="statCourses">—</div><div class="sub">Courses</div></div>
+     <div class="card"><div class="num" id="statStudents">—</div><div class="sub">Student accounts</div></div>
+     <div class="card"><div class="num" id="statEnroll">—</div><div class="sub">Enrollments</div></div>
+     <div class="card"><div class="num" id="statPosts">—</div><div class="sub">Content posts</div></div>
+    </div>
+    <div class="card"><h3>Admin checklist</h3><p class="sub">Create a course → add modules → add lessons → publish. Student access and content visibility are enforced by database policies.</p><p class="sub">This board manages the connected Supabase learning database. AI lesson generation and AI tutor remain dependent on a separately deployed, secured AI backend.</p></div>
+   </section>
+   <section id="courses" class="page">
+    <h1 class="title">Courses & lessons</h1><p class="sub">Create and publish courses, then build their learning structure.</p>
+    <div class="grid">
+     <div class="card"><h3>Course editor</h3><form id="courseform">
+      <input type="hidden" id="courseId">
+      <label>Course title</label><input id="ctitle" required>
+      <label>Slug (unique)</label><input id="cslug" required>
+      <label>Short description</label><textarea id="cdesc"></textarea>
+      <div class="row"><div><label>Category</label><input id="ccat" value="skills" required></div><div><label>Academy</label><select id="cacademy"><option value="skills">Skills</option><option value="language">Language</option><option value="exam">Exam Prep</option><option value="research">Research</option></select></div></div>
+      <div class="row"><div><label>Level</label><select id="clevel"><option>beginner</option><option>intermediate</option><option>advanced</option></select></div><div><label>Price (BDT)</label><input id="cprice" type="number" min="0" value="0"></div></div>
+      <label>Thumbnail URL (optional)</label><input id="cthumb" type="url">
+      <label>Status</label><select id="cstatus"><option value="draft">Draft</option><option value="published">Published</option><option value="archived">Archived</option></select>
+      <div class="row" style="margin-top:14px"><button>Save course</button><button type="button" class="secondary" id="courseclear">Clear</button></div>
+     </form></div>
+     <div class="card"><h3>Course list</h3><div id="courselist" class="stack"></div></div>
+    </div>
+    <div class="split" style="margin-top:18px">
+     <div class="card"><h3>Modules</h3><div id="selectedCourse" class="small">Select a course first.</div><form id="moduleform"><label>Module title</label><input id="mtitle" required><label>Description</label><textarea id="mdesc"></textarea><button style="margin-top:12px">Add module</button></form><div id="modulelist" class="stack" style="margin-top:14px"></div></div>
+     <div class="card"><h3>Lessons</h3><div id="selectedModule" class="small">Select a module.</div><form id="lessonform"><label>Lesson title</label><input id="ltitle" required><label>Lesson content</label><textarea id="lcontent" required></textarea><label>Video URL</label><input id="lvideo" type="url"><label>Resource URL</label><input id="lresource" type="url"><div class="row"><div><label>Minutes</label><input id="lduration" type="number" min="0" value="5"></div><div><label>Preview lesson?</label><select id="lpreview"><option value="false">No</option><option value="true">Yes</option></select></div></div><button style="margin-top:12px">Add lesson</button></form><div id="lessonlist" class="stack" style="margin-top:14px"></div></div>
+    </div>
+   </section>
+   <section id="posts" class="page">
+    <h1 class="title">Posts & announcements</h1><p class="sub">Publish notices and learning content to the student portal.</p>
+    <div class="grid"><div class="card"><h3>Post editor</h3><form id="postform"><input type="hidden" id="postId"><label>Title</label><input id="ptitle" required><label>Slug</label><input id="pslug" required><label>Excerpt</label><textarea id="pexcerpt"></textarea><label>Body</label><textarea id="pbody" required></textarea><label>Cover image URL</label><input id="pimage" type="url"><div class="row"><div><label>Category</label><input id="pcat" value="announcement"></div><div><label>Audience</label><select id="paudience"><option value="all">All learners</option><option value="language">Language</option><option value="skills">Skills</option><option value="exam">Exam prep</option></select></div></div><label>Status</label><select id="pstatus"><option value="draft">Draft</option><option value="published">Published</option></select><button style="margin-top:14px">Save post</button></form></div><div class="card"><h3>Published & draft posts</h3><div id="postlist" class="stack"></div></div></div>
+   </section>
+   <section id="students" class="page">
+    <h1 class="title">Students & access</h1><p class="sub">Review profiles and enrollments. Paid course access should only be granted after payment is verified.</p>
+    <div class="card"><h3>Student profiles</h3><div class="tablewrap"><table><thead><tr><th>Name</th><th>Account ID</th><th>Role</th><th>Joined</th></tr></thead><tbody id="studentrows"></tbody></table></div></div>
+    <div class="card" style="margin-top:18px"><h3>Grant/revoke course enrollment</h3><form id="accessform"><label>Student UUID</label><input id="studentid" required placeholder="Paste student's account UUID"><label>Course</label><select id="accesscourse"></select><label>Status</label><select id="accessstatus"><option value="active">Active / grant access</option><option value="revoked">Revoked / remove access</option></select><button style="margin-top:12px">Save access</button></form><div class="small" style="margin-top:8px">For security, student UUIDs are shown in the table above. Use the existing payment process before granting paid access.</div></div>
+   </section>
+   <section id="quizzes" class="page">
+    <h1 class="title">Quizzes</h1><p class="sub">Create course quizzes and questions. Answer keys are stored in a separate admin-only table.</p>
+    <div class="grid"><div class="card"><h3>Create quiz</h3><form id="quizform"><label>Course</label><select id="quizcourse"></select><label>Quiz title</label><input id="qtitle" required><label>Description</label><textarea id="qdesc"></textarea><label>Pass mark (%)</label><input id="qpass" type="number" min="0" max="100" value="60"><button style="margin-top:12px">Create quiz</button></form></div><div class="card"><h3>Add question to quiz</h3><form id="questionform"><label>Quiz</label><select id="questionquiz"></select><label>Question</label><textarea id="questionprompt" required></textarea><label>Options (one per line, 2–6)</label><textarea id="questionoptions" required></textarea><label>Correct option number (starting at 1)</label><input id="correctoption" type="number" min="1" max="6" required><label>Explanation</label><textarea id="qexplanation"></textarea><button style="margin-top:12px">Add question</button></form></div></div><div class="card" style="margin-top:18px"><h3>Quiz list</h3><div id="quizlist" class="stack"></div></div>
+   </section>
+   <section id="certificates" class="page">
+    <h1 class="title">Certificates</h1><p class="sub">Issue a completion certificate after verifying the learner met the course requirements.</p>
+    <div class="card"><form id="certform"><label>Student UUID</label><input id="certstudent" required><label>Course</label><select id="certcourse"></select><button style="margin-top:12px">Issue certificate</button></form><div id="certlist" class="stack" style="margin-top:18px"></div></div>
+   </section>
+  </div>
+ </main>
+</div>
+<script>
+const SUPABASE_URL='https://uzrkxpvxnoubwglnpvot.supabase.co';
+const SUPABASE_KEY='sb_publishable_ePi37M7m4vKGViJX43gRwA_1YuF0pn6';
+const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+let user=null,profile=null,courses=[],posts=[],quizzes=[],selectedCourse=null,selectedModule=null;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function message(text,error=false){$('notice').textContent=text;$('notice').classList.toggle('hidden',!text);$('notice').classList.toggle('err',error);window.scrollTo({top:0,behavior:'smooth'});}
+function loginMessage(text,error=false){$('loginmsg').textContent=text;$('loginmsg').classList.remove('hidden');$('loginmsg').classList.toggle('err',error);}
+async function must(result){if(result.error)throw result.error;return result.data;}
+async function enter(sessionUser){
+ user=sessionUser;
+ const p=await must(await sb.from('profiles').select('id,display_name,role').eq('id',user.id).single());
+ if(p.role!=='admin'){await sb.auth.signOut();user=null;throw new Error('This account does not have the admin role. Ask the platform owner to assign admin access securely.');}
+ profile=p;$('login').classList.add('hidden');$('app').classList.remove('hidden');$('who').textContent=(p.display_name||user.email||'Admin')+' · verified administrator';await refreshAll();
+}
+$('loginform').addEventListener('submit',async e=>{e.preventDefault();try{const {data,error}=await sb.auth.signInWithPassword({email:$('email').value.trim(),password:$('password').value});if(error)throw error;await enter(data.user);}catch(err){loginMessage(err.message||'Could not sign in.',true);}});
+$('signout').onclick=async()=>{await sb.auth.signOut();location.reload();};
+sb.auth.onAuthStateChange((event,session)=>{if(event==='SIGNED_IN'&&session?.user&&!user)setTimeout(()=>enter(session.user).catch(e=>loginMessage(e.message,true)),0);});
+async function refreshAll(){await Promise.all([loadCourses(),loadPosts(),loadStudents(),loadQuizzes(),loadCertificates()]);}
+async function loadCourses(){courses=await must(await sb.from('courses').select('*').order('created_at',{ascending:false}));$('courselist').innerHTML=courses.map(c=>'<div class="item '+(selectedCourse?.id===c.id?'sel':'')+'" data-course="'+c.id+'"><b>'+esc(c.title)+'</b><div class="small">'+esc(c.academy)+' · ৳'+c.price_bdt+' · '+esc(c.status)+'</div><div class="actions" style="margin-top:8px"><button class="secondary" data-editcourse="'+c.id+'">Edit</button><button class="danger" data-delcourse="'+c.id+'">Delete</button></div></div>').join('')||'<p class="sub">No courses yet.</p>';document.querySelectorAll('[data-course]').forEach(el=>el.onclick=e=>{if(e.target.closest('button'))return;selectCourse(el.dataset.course);});document.querySelectorAll('[data-editcourse]').forEach(b=>b.onclick=e=>{e.stopPropagation();editCourse(b.dataset.editcourse);});document.querySelectorAll('[data-delcourse]').forEach(b=>b.onclick=e=>{e.stopPropagation();deleteCourse(b.dataset.delcourse);});['accesscourse','quizcourse','certcourse'].forEach(id=>$(id).innerHTML=courses.map(c=>'<option value="'+c.id+'">'+esc(c.title)+'</option>').join(''));$('statCourses').textContent=courses.length;}
+function clearCourse(){$('courseform').reset();$('courseId').value='';$('cprice').value=0;$('cstatus').value='draft';}
+$('courseclear').onclick=clearCourse;
+$('courseform').onsubmit=async e=>{e.preventDefault();try{const row={title:$('ctitle').value.trim(),slug:$('cslug').value.trim(),description:$('cdesc').value,category:$('ccat').value.trim(),academy:$('cacademy').value,level:$('clevel').value,price_bdt:Number($('cprice').value||0),thumbnail_url:$('cthumb').value||null,status:$('cstatus').value,created_by:user.id,updated_at:new Date().toISOString()};const id=$('courseId').value;await must(id?await sb.from('courses').update(row).eq('id',id):await sb.from('courses').insert(row));clearCourse();await loadCourses();message('Course saved.');}catch(err){message(err.message,true);}};
+function editCourse(id){const c=courses.find(x=>x.id===id);if(!c)return;$('courseId').value=c.id;[['ctitle','title'],['cslug','slug'],['cdesc','description'],['ccat','category'],['cacademy','academy'],['clevel','level'],['cprice','price_bdt'],['cthumb','thumbnail_url'],['cstatus','status']].forEach(([a,b])=>$(a).value=c[b]??'');}
+async function deleteCourse(id){if(!confirm('Delete this course and its dependent content? This may be blocked if records are linked.'))return;try{await must(await sb.from('courses').delete().eq('id',id));await loadCourses();message('Course deleted.');}catch(err){message('Could not delete: '+err.message,true);}}
+async function selectCourse(id){selectedCourse=courses.find(c=>c.id===id);selectedModule=null;$('selectedCourse').textContent=selectedCourse?.title||'';$('selectedModule').textContent='Select a module.';$('modulelist').innerHTML='';$('lessonlist').innerHTML='';await loadModules();}
+async function loadModules(){if(!selectedCourse)return;const ms=await must(await sb.from('course_modules').select('*').eq('course_id',selectedCourse.id).order('sort_order'));$('modulelist').innerHTML=ms.map(m=>'<div class="item '+(selectedModule?.id===m.id?'sel':'')+'" data-module="'+m.id+'"><b>'+esc(m.title)+'</b><div class="small">'+esc(m.description)+'</div><button class="danger" data-delmodule="'+m.id+'" style="margin-top:7px">Delete</button></div>').join('')||'<p class="small">No modules.</p>';document.querySelectorAll('[data-module]').forEach(el=>el.onclick=e=>{if(e.target.closest('button'))return;selectModule(el.dataset.module);});document.querySelectorAll('[data-delmodule]').forEach(b=>b.onclick=e=>{e.stopPropagation();deleteModule(b.dataset.delmodule);});}
+$('moduleform').onsubmit=async e=>{e.preventDefault();if(!selectedCourse)return message('Select a course first.',true);try{const row={course_id:selectedCourse.id,title:$('mtitle').value.trim(),description:$('mdesc').value,sort_order:Date.now()%100000};await must(await sb.from('course_modules').insert(row));$('moduleform').reset();await loadModules();message('Module added.');}catch(err){message(err.message,true);}};
+async function deleteModule(id){if(!confirm('Delete this module and its lessons?'))return;try{await must(await sb.from('course_modules').delete().eq('id',id));selectedModule=null;await loadModules();$('lessonlist').innerHTML='';message('Module deleted.');}catch(err){message(err.message,true);}}
+async function selectModule(id){const {data,error}=await sb.from('course_modules').select('*').eq('id',id).single();if(error)throw error;selectedModule=data;$('selectedModule').textContent=data.title;await loadLessons();}
+async function loadLessons(){if(!selectedModule)return;const ls=await must(await sb.from('lessons').select('*').eq('module_id',selectedModule.id).order('sort_order'));$('lessonlist').innerHTML=ls.map(l=>'<div class="item"><b>'+esc(l.title)+'</b><div class="small">'+l.duration_minutes+' min '+(l.is_preview?'· preview':'')+'</div><button class="danger" data-dellesson="'+l.id+'" style="margin-top:7px">Delete</button></div>').join('')||'<p class="small">No lessons.</p>';document.querySelectorAll('[data-dellesson]').forEach(b=>b.onclick=()=>deleteLesson(b.dataset.dellesson));}
+$('lessonform').onsubmit=async e=>{e.preventDefault();if(!selectedModule)return message('Select a module first.',true);try{const row={module_id:selectedModule.id,title:$('ltitle').value.trim(),content:$('lcontent').value,video_url:$('lvideo').value||null,resource_url:$('lresource').value||null,duration_minutes:Number($('lduration').value||0),sort_order:Date.now()%100000,is_preview:$('lpreview').value==='true'};await must(await sb.from('lessons').insert(row));$('lessonform').reset();$('lduration').value=5;await loadLessons();message('Lesson added.');}catch(err){message(err.message,true);}};
+async function deleteLesson(id){if(!confirm('Delete this lesson?'))return;try{await must(await sb.from('lessons').delete().eq('id',id));await loadLessons();message('Lesson deleted.');}catch(err){message(err.message,true);}}
+async function loadPosts(){posts=await must(await sb.from('content_posts').select('*').order('created_at',{ascending:false}));$('postlist').innerHTML=posts.map(p=>'<div class="item"><b>'+esc(p.title)+'</b><div class="small">'+esc(p.status)+' · '+esc(p.category)+'</div><div class="actions" style="margin-top:8px"><button class="secondary" data-editpost="'+p.id+'">Edit</button><button class="danger" data-delpost="'+p.id+'">Delete</button></div></div>').join('')||'<p class="small">No posts yet.</p>';document.querySelectorAll('[data-editpost]').forEach(b=>b.onclick=()=>editPost(b.dataset.editpost));document.querySelectorAll('[data-delpost]').forEach(b=>b.onclick=()=>deletePost(b.dataset.delpost));$('statPosts').textContent=posts.length;}
+$('postform').onsubmit=async e=>{e.preventDefault();try{const status=$('pstatus').value;const row={title:$('ptitle').value.trim(),slug:$('pslug').value.trim(),excerpt:$('pexcerpt').value,body:$('pbody').value,cover_image_url:$('pimage').value||null,category:$('pcat').value,audience:$('paudience').value,status,created_by:user.id,updated_at:new Date().toISOString(),published_at:status==='published'?new Date().toISOString():null};const id=$('postId').value;await must(id?await sb.from('content_posts').update(row).eq('id',id):await sb.from('content_posts').insert(row));$('postform').reset();$('postId').value='';await loadPosts();message('Post saved.');}catch(err){message(err.message,true);}};
+function editPost(id){const p=posts.find(x=>x.id===id);if(!p)return;$('postId').value=id;[['ptitle','title'],['pslug','slug'],['pexcerpt','excerpt'],['pbody','body'],['pimage','cover_image_url'],['pcat','category'],['paudience','audience'],['pstatus','status']].forEach(([a,b])=>$(a).value=p[b]??'');}
+async function deletePost(id){if(!confirm('Delete this post?'))return;try{await must(await sb.from('content_posts').delete().eq('id',id));await loadPosts();message('Post deleted.');}catch(err){message(err.message,true);}}
+async function loadStudents(){const data=await must(await sb.from('profiles').select('id,display_name,role,created_at').order('created_at',{ascending:false}));$('studentrows').innerHTML=data.map(p=>'<tr><td>'+esc(p.display_name||'Learner')+'</td><td><code>'+esc(p.id)+'</code></td><td><span class="pill">'+esc(p.role)+'</span></td><td>'+new Date(p.created_at).toLocaleDateString()+'</td></tr>').join('');$('statStudents').textContent=data.length;const enr=await sb.from('enrollments').select('id',{count:'exact',head:true});$('statEnroll').textContent=enr.count??'—';}
+$('accessform').onsubmit=async e=>{e.preventDefault();try{const sid=$('studentid').value.trim(),cid=$('accesscourse').value,status=$('accessstatus').value;const existing=await sb.from('enrollments').select('id').eq('student_id',sid).eq('course_id',cid).maybeSingle();if(existing.error)throw existing.error;if(existing.data){await must(await sb.from('enrollments').update({status}).eq('id',existing.data.id));}else{await must(await sb.from('enrollments').insert({student_id:sid,course_id:cid,status}));}await loadStudents();message('Enrollment access updated.');}catch(err){message(err.message,true);}};
+async function loadQuizzes(){quizzes=await must(await sb.from('quizzes').select('*').order('created_at',{ascending:false}));$('quizlist').innerHTML=quizzes.map(q=>'<div class="item"><b>'+esc(q.title)+'</b><div class="small">Pass mark: '+q.pass_mark+'%</div><button class="danger" data-delquiz="'+q.id+'" style="margin-top:7px">Delete</button></div>').join('')||'<p class="small">No quizzes.</p>';const opts=quizzes.map(q=>'<option value="'+q.id+'">'+esc(q.title)+'</option>').join('');$('questionquiz').innerHTML=opts;}
+$('quizform').onsubmit=async e=>{e.preventDefault();try{await must(await sb.from('quizzes').insert({course_id:$('quizcourse').value,title:$('qtitle').value.trim(),description:$('qdesc').value,pass_mark:Number($('qpass').value||60)}));$('quizform').reset();$('qpass').value=60;await loadQuizzes();message('Quiz created.');}catch(err){message(err.message,true);}};
+$('questionform').onsubmit=async e=>{e.preventDefault();try{const opts=$('questionoptions').value.split('\n').map(x=>x.trim()).filter(Boolean);const answer=Number($('correctoption').value)-1;if(opts.length<2||opts.length>6||answer<0||answer>=opts.length)throw new Error('Provide 2–6 options and a valid correct option number.');const q=await must(await sb.from('quiz_questions').insert({quiz_id:$('questionquiz').value,prompt:$('questionprompt').value.trim(),options:opts,sort_order:Date.now()%100000}).select('id').single());await must(await sb.from('quiz_answer_keys').insert({question_id:q.id,correct_option:answer,explanation:$('qexplanation').value}));$('questionform').reset();message('Question and answer key saved securely.');}catch(err){message(err.message,true);}};
+async function deleteQuiz(id){if(!confirm('Delete quiz?'))return;try{await must(await sb.from('quizzes').delete().eq('id',id));await loadQuizzes();message('Quiz deleted.');}catch(err){message(err.message,true);}}
+async function loadCertificates(){const r=await sb.from('certificates').select('id,student_id,course_id,certificate_code,issued_at').order('issued_at',{ascending:false}).limit(50);if(r.error)throw r.error;$('certlist').innerHTML=r.data.map(c=>'<div class="item"><b>'+esc(c.certificate_code)+'</b><div class="small">'+esc(c.student_id)+' · '+new Date(c.issued_at).toLocaleDateString()+'</div></div>').join('')||'<p class="small">No certificates yet.</p>';}
+$('certform').onsubmit=async e=>{e.preventDefault();try{const row=await must(await sb.from('certificates').insert({student_id:$('certstudent').value.trim(),course_id:$('certcourse').value}).select().single());await loadCertificates();message('Certificate issued: '+row.certificate_code);}catch(err){message(err.message,true);}};
+document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>{document.querySelectorAll('.nav').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));$(b.dataset.page).classList.add('active');$('pageTitle').textContent=b.textContent;});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-delquiz]');if(b)deleteQuiz(b.dataset.delquiz);});
+sb.auth.getSession().then(({data})=>{if(data.session?.user)enter(data.session.user).catch(e=>loginMessage(e.message,true));});
+</script>
+</body>
+</html>
