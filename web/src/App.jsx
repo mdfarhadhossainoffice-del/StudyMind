@@ -11,28 +11,51 @@ function AuthPanel({ onDone }) {
   const [password,setPassword] = useState('');
   const [name,setName] = useState('');
   const [busy,setBusy] = useState(false);
-  const [error,setError] = useState('');
+  const [message,setMessage] = useState('');
   async function submit(e) {
-    e.preventDefault(); setBusy(true); setError('');
+    e.preventDefault(); setBusy(true); setMessage('');
     try {
-      if (mode === 'signup') {
+      if (mode === 'forgot') {
+        const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin });
+        if (error) throw error;
+        setMessage('If an account exists for this email, a password reset link has been sent. Check your inbox and spam folder.');
+        setMode('login');
+      } else if (mode === 'signup') {
         const { error } = await supabase.auth.signUp({ email, password, options:{ data:{ full_name:name }, emailRedirectTo: window.location.origin } });
         if (error) throw error;
-        setError('Account created. Check your email if confirmation is enabled, then sign in.');
+        setMessage('Account created. Check your email if confirmation is enabled, then sign in.');
         setMode('login');
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
         onDone();
       }
-    } catch (e) { setError(e.message || 'Unable to continue.'); }
+    } catch (e) { setMessage(e.message || 'Unable to continue.'); }
     finally { setBusy(false); }
   }
-  return <div className="auth-card"><span className="eyebrow">YOUR LEARNING SPACE</span><h2>{mode==='login'?'Welcome back':'Create your Lumo account'}</h2><p>Use your email to access your learning dashboard.</p><form onSubmit={submit}>{mode==='signup'&&<label>Full name<input required value={name} onChange={e=>setName(e.target.value)} /></label>}<label>Email<input type="email" required value={email} onChange={e=>setEmail(e.target.value)} /></label><label>Password<input type="password" minLength="8" required value={password} onChange={e=>setPassword(e.target.value)} /></label><button className="primary" disabled={busy}>{busy?'Please wait…':mode==='login'?'Log in':'Create account'}</button></form>{error&&<p className="notice">{error}</p>}<button className="linkbtn" onClick={()=>{setMode(mode==='login'?'signup':'login');setError('')}}>{mode==='login'?'New to Lumo? Create an account':'Already registered? Log in'}</button></div>;
+  return <div className="auth-card"><span className="eyebrow">YOUR LEARNING SPACE</span><h2>{mode==='login'?'Welcome back':mode==='forgot'?'Reset your password':'Create your Lumo account'}</h2><p>{mode==='forgot'?'Enter your account email and we will send a reset link.':'Use your email to access your learning dashboard.'}</p><form onSubmit={submit}>{mode==='signup'&&<label>Full name<input required value={name} onChange={e=>setName(e.target.value)} /></label>}<label>Email<input type="email" required value={email} onChange={e=>setEmail(e.target.value)} /></label>{mode!=='forgot'&&<label>Password<input type="password" minLength="8" required value={password} onChange={e=>setPassword(e.target.value)} /></label>}<button className="primary" disabled={busy}>{busy?'Please wait…':mode==='login'?'Log in':mode==='forgot'?'Send reset link':'Create account'}</button></form>{message&&<p className="notice">{message}</p>}{mode==='login'&&<button className="linkbtn" onClick={()=>{setMode('forgot');setMessage('')}}>Forgot password?</button>}<button className="linkbtn" onClick={()=>{setMode(mode==='signup'?'login':'signup');setMessage('')}}>{mode==='signup'?'Already registered? Log in':'New to Lumo? Create an account'}</button></div>;
 }
 
+function ResetPasswordPanel({ onDone }) {
+  const [password,setPassword]=useState('');
+  const [busy,setBusy]=useState(false);
+  const [message,setMessage]=useState('');
+  async function submit(e) {
+    e.preventDefault();setBusy(true);setMessage('');
+    try {
+      const {error}=await supabase.auth.updateUser({password});
+      if(error) throw error;
+      await supabase.auth.signOut();
+      setMessage('Password updated. Please log in with your new password.');
+      onDone();
+    } catch(e) { setMessage(e.message||'Could not update password. Please request a new reset link.'); }
+    finally { setBusy(false); }
+  }
+  return <div className="auth-card"><span className="eyebrow">SECURE YOUR ACCOUNT</span><h2>Choose a new password</h2><p>Set a new password for your Lumo account.</p><form onSubmit={submit}><label>New password<input type="password" minLength="8" required value={password} onChange={e=>setPassword(e.target.value)} /></label><button className="primary" disabled={busy}>{busy?'Updating…':'Update password'}</button></form>{message&&<p className="notice">{message}</p>}</div>;
+}
 function App() {
   const [session,setSession] = useState(null);
+  const [recoveryMode,setRecoveryMode] = useState(false);
   const [profile,setProfile] = useState(null);
   const [courses,setCourses] = useState([]);
   const [enrollments,setEnrollments] = useState([]);
@@ -65,7 +88,10 @@ function App() {
   useEffect(()=>{
     if (!supabase) { setLoading(false); return; }
     load();
-    // AuthPanel calls load() after a successful sign-in; avoid async work inside auth callbacks.
+    const { data:{ subscription } } = supabase.auth.onAuthStateChange((event) => {
+      if (event === 'PASSWORD_RECOVERY') setRecoveryMode(true);
+    });
+    return () => subscription.unsubscribe();
   },[]);
 
   async function signOut(){await supabase.auth.signOut();setSession(null);setProfile(null);setEnrollments([]);setTab('overview')}
@@ -88,6 +114,7 @@ function App() {
   }
 
   if (!supabase) return <main className="setup"><div className="brand"><b>L</b> lumo</div><span className="eyebrow">PHASE 02 · CONFIGURATION</span><h1>Connect Lumo to its database.</h1><p>The student and admin application is ready for a Supabase project. Add the project URL and publishable/anon key to your local <code>.env.local</code> file.</p><pre>VITE_SUPABASE_URL=your-project-url<br/>VITE_SUPABASE_ANON_KEY=your-publishable-key</pre><p className="muted">Never use a service-role key in the browser. The Lumo Supabase project is active. Copy the values from web/.env.example into web/.env.local to connect this app.</p></main>;
+  if (recoveryMode) return <main className="auth-wrap"><div className="brand"><b>L</b> lumo</div><ResetPasswordPanel onDone={()=>{setRecoveryMode(false);load();}}/></main>;
   if (loading) return <main className="setup"><div className="brand"><b>L</b> lumo</div><p>Loading your learning space…</p></main>;
   if (!session) return <main className="auth-wrap"><div className="brand"><b>L</b> lumo</div><AuthPanel onDone={load}/></main>;
 
