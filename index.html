@@ -6679,15 +6679,22 @@ window.loginWithPhone = async function(){
   const phone=smpNormalizePhone(raw);
   if(!isEmail&&!/^\+[1-9]\d{7,14}$/.test(phone)){toast('Enter a valid email or phone number with country code. Bangladesh mobile numbers can be entered as 01XXXXXXXXX.');return;}
   try{
-    smpSetLoginMessage('Sending a secure one-time verification code…');
+    smpSetLoginMessage(isEmail?'Sending a secure sign-in link…':'Sending a secure one-time verification code…');
     const options={data:{full_name:name||raw.split('@')[0],account_mode:_loginMode||'student'}};
-    const result=isEmail?await sb.auth.signInWithOtp({email:raw,options:{...options,emailRedirectTo:window.location.origin}}):await sb.auth.signInWithOtp({phone,options});
+    const result=isEmail
+      ?await sb.auth.signInWithOtp({email:raw,options:{...options,emailRedirectTo:window.location.origin}})
+      :await sb.auth.signInWithOtp({phone,options});
     if(result.error)throw result.error;
-    _smpOtpTarget=isEmail?{email:raw}:{phone};
+    if(isEmail){
+      smpSetLoginMessage('Check your email and open the newest Lumo Pro sign-in link. Keep this page open; you will return here automatically.');
+      toast('Sign-in link sent. Check your email.');
+      return;
+    }
+    _smpOtpTarget={phone};
     smpSetLoginMessage('A verification code has been sent. Enter the code when prompted.');
     const token=prompt('Enter the one-time verification code sent to '+raw+':');
     if(!token){smpSetLoginMessage('Verification not completed. You can request a new code.');return;}
-    const verified=await sb.auth.verifyOtp({..._smpOtpTarget,token:token.trim(),type:isEmail?'email':'sms'});
+    const verified=await sb.auth.verifyOtp({..._smpOtpTarget,token:token.trim(),type:'sms'});
     if(verified.error)throw verified.error;
     await smpFinishAuth(verified.data.user);
   }catch(e){console.error(e);smpSetLoginMessage(e.message||'Sign-in failed. Please try again.');toast('Sign-in failed: '+(e.message||'Please try again.'));}
