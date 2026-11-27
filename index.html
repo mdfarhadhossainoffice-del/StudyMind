@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StudyMind Pro — Production v10 · Interactive Future Skills Academy</title>
+<title>Lumo Pro — AI Learning & Future Skills Academy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,300;0,700;1,300&family=Noto+Sans+Bengali:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -412,9 +412,9 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--surface);color:
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-// StudyMind Pro public Supabase browser configuration.
+// Lumo Pro public Supabase browser configuration.
 // Publishable keys are intended for browser use; never place a service-role/secret key here.
-window.STUDYMIND_SUPABASE_CONFIG = Object.freeze({
+window.lumo_SUPABASE_CONFIG = Object.freeze({
   url: 'https://uzrkxpvxnoubwglnpvot.supabase.co',
   anonKey: 'sb_publishable_ePi37M7m4vKGViJX43gRwA_1YuF0pn6'
 });
@@ -426,7 +426,7 @@ window.STUDYMIND_SUPABASE_CONFIG = Object.freeze({
 <!-- ═══════════ LOGIN SCREEN ═══════════ -->
 <div class="login-screen" id="login-screen">
   <div class="login-brand">
-    <div class="logo" style="font-size:36px;letter-spacing:-1.5px;">📚 StudyMind Pro</div>
+    <div class="logo" style="font-size:36px;letter-spacing:-1.5px;">📚 Lumo Pro</div>
     <div class="tagline">AI Learning · Free Courses · Real Certificates · For Everyone</div>
   </div>
 
@@ -466,7 +466,7 @@ window.STUDYMIND_SUPABASE_CONFIG = Object.freeze({
     </div>
 
     <button onclick="loginWithPhone()" style="width:100%;padding:14px;background:linear-gradient(135deg,#059669,#047857);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:800;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;box-shadow:0 4px 16px rgba(5,150,105,0.4);transition:transform 0.15s;" onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform=''">
-      🚀 Enter StudyMind — Free
+      🚀 Enter Lumo — Free
     </button>
     <div style="text-align:center;font-size:11px;color:rgba(255,255,255,0.2);margin-top:12px;">Free forever for students · No credit card needed</div>
   </div>
@@ -491,7 +491,7 @@ window.STUDYMIND_SUPABASE_CONFIG = Object.freeze({
 <!-- SIDEBAR -->
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-brand">
-    <div class="brand-name">StudyMind Pro</div>
+    <div class="brand-name">Lumo Pro</div>
     <div class="brand-tag" id="sidebar-mode-tag">Student Mode</div>
   </div>
   <div class="sidebar-user">
@@ -738,8 +738,8 @@ window.STUDYMIND_SUPABASE_CONFIG = Object.freeze({
           <div style="background:linear-gradient(135deg,var(--emerald),var(--teal));padding:14px 20px;display:flex;align-items:center;gap:12px;">
             <div style="width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:20px;">🤖</div>
             <div>
-              <div style="font-size:14px;font-weight:700;color:#fff;">StudyMind AI Tutor</div>
-              <div style="font-size:11px;color:rgba(255,255,255,0.7);">Powered by StudyMind AI · Gemini-powered learning assistant</div>
+              <div style="font-size:14px;font-weight:700;color:#fff;">Lumo AI Tutor</div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.7);">Powered by Lumo AI · Gemini-powered learning assistant</div>
             </div>
             <div style="margin-left:auto;display:flex;align-items:center;gap:8px;">
               <div id="ai-tutor-key-indicator" style="font-size:11px;padding:4px 10px;border-radius:20px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);cursor:pointer;" onclick="goPage('settings',document.querySelector('.nav-item[onclick*=settings]'))">🔐 Secure AI</div>
@@ -785,7 +785,7 @@ window.STUDYMIND_SUPABASE_CONFIG = Object.freeze({
       <div style="background:linear-gradient(135deg,#7c3aed,#ea580c,#059669);border-radius:18px;padding:20px 26px;margin-bottom:20px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
         <div style="font-size:40px;">🌟</div>
         <div style="flex:1;min-width:200px;">
-          <div style="font-size:17px;font-weight:800;color:#fff;margin-bottom:4px;">StudyMind Recommends: 8 Mandatory Life Success Courses</div>
+          <div style="font-size:17px;font-weight:800;color:#fff;margin-bottom:4px;">Lumo Recommends: 8 Mandatory Life Success Courses</div>
           <div style="font-size:13px;color:rgba(255,255,255,0.75);">💰 Money Management · 🚀 Entrepreneurship · 🎯 Sales & Communication · 🤖 AI Business · 📣 Digital Marketing · ⚡ Productivity · 🎤 Public Speaking · 🤝 Networking</div>
         </div>
         <button onclick="filterSuccessCourses()" style="background:#fff;color:#7c3aed;border:none;border-radius:10px;padding:10px 20px;font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;white-space:nowrap;">View All 8 →</button>
@@ -795,7 +795,7 @@ window.STUDYMIND_SUPABASE_CONFIG = Object.freeze({
       <div style="background:linear-gradient(135deg,#0c1015,#1e2530,#059669);border-radius:20px;padding:28px 32px;margin-bottom:24px;position:relative;overflow:hidden;">
         <div style="position:absolute;top:-30px;right:-30px;font-size:120px;opacity:0.06;">🎓</div>
         <div style="font-size:26px;font-weight:800;color:#fff;margin-bottom:6px;">Free Courses — Real Certificates</div>
-        <div style="font-size:14px;color:rgba(255,255,255,0.65);margin-bottom:18px;">Login once on StudyMind → Enroll instantly → Get your original certificate. No re-login ever.</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.65);margin-bottom:18px;">Login once on Lumo → Enroll instantly → Get your original certificate. No re-login ever.</div>
         <div style="display:flex;gap:12px;flex-wrap:wrap;">
           <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:10px;padding:10px 18px;text-align:center;">
             <div style="font-size:20px;font-weight:800;color:#fff;" id="enrolled-count">0</div>
@@ -875,9 +875,9 @@ window.STUDYMIND_SUPABASE_CONFIG = Object.freeze({
     <div class="page fade-in" id="page-future-skills">
       <div style="background:linear-gradient(125deg,#101827,#164e63 55%,#4338ca);border-radius:20px;padding:30px;color:#fff;margin-bottom:22px;position:relative;overflow:hidden;">
         <div style="position:absolute;right:22px;top:18px;font-size:76px;opacity:.14">🌐</div>
-        <div style="font-size:11px;font-weight:800;letter-spacing:2px;color:#99f6e4;text-transform:uppercase">StudyMind Pro · Future Skills Academy</div>
+        <div style="font-size:11px;font-weight:800;letter-spacing:2px;color:#99f6e4;text-transform:uppercase">Lumo Pro · Future Skills Academy</div>
         <div style="font-size:30px;font-weight:800;line-height:1.2;margin:8px 0">Be Ready for the Next 50 Years.</div>
-        <div style="font-size:14px;max-width:760px;color:#dbeafe;line-height:1.7">100 practical courses for technical and non-technical learners. Learn with AI-generated lessons, real-world projects, examples, video resources, audio playback and StudyMind Pro certificates.</div>
+        <div style="font-size:14px;max-width:760px;color:#dbeafe;line-height:1.7">100 practical courses for technical and non-technical learners. Learn with AI-generated lessons, real-world projects, examples, video resources, audio playback and Lumo Pro certificates.</div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px">
           <div style="background:#ffffff18;border:1px solid #ffffff30;padding:10px 15px;border-radius:10px"><b style="font-size:22px">100</b><div style="font-size:11px;color:#dbeafe">Career-ready courses</div></div>
           <div style="background:#ffffff18;border:1px solid #ffffff30;padding:10px 15px;border-radius:10px"><b style="font-size:22px" id="fs-enrolled-count">0</b><div style="font-size:11px;color:#dbeafe">Your enrollments</div></div>
@@ -886,7 +886,7 @@ window.STUDYMIND_SUPABASE_CONFIG = Object.freeze({
       </div>
       <div class="card" style="margin-bottom:18px;background:#f0fdfa;border-color:#99f6e4">
         <div style="font-size:15px;font-weight:800;color:#115e59">🎯 The learning promise</div>
-        <div style="font-size:13px;color:#334155;margin-top:5px;line-height:1.7">Every course follows: Understand → See a worked example → Practise a real task → Solve a challenge → Take an assessment. Course certificates are issued by StudyMind Pro after the learning requirements are completed; they are not third-party university or government accreditations.</div>
+        <div style="font-size:13px;color:#334155;margin-top:5px;line-height:1.7">Every course follows: Understand → See a worked example → Practise a real task → Solve a challenge → Take an assessment. Course certificates are issued by Lumo Pro after the learning requirements are completed; they are not third-party university or government accreditations.</div>
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px">
         <input class="input" id="fs-search" placeholder="Search 100 future skills courses..." oninput="fsRenderCatalog()" style="flex:1;min-width:220px" />
@@ -1282,7 +1282,7 @@ window.STUDYMIND_SUPABASE_CONFIG = Object.freeze({
         <!-- Paid Affiliate Books -->
         <div style="background:linear-gradient(135deg,#fef3c7,#fde68a);border:1px solid #fcd34d;border-radius:16px;padding:20px;margin-bottom:14px;">
           <div style="font-size:15px;font-weight:800;color:var(--amber);margin-bottom:4px;">⭐ Premium IELTS Books — Highly Recommended for Band 7+</div>
-          <div style="font-size:12px;color:var(--ink2);">These highly-rated books have helped millions of students achieve their target band. <em>Affiliate links — a small commission helps keep StudyMind free for all students.</em></div>
+          <div style="font-size:12px;color:var(--ink2);">These highly-rated books have helped millions of students achieve their target band. <em>Affiliate links — a small commission helps keep Lumo free for all students.</em></div>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;">
           <div style="background:var(--white);border:2px solid #fcd34d;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);"><div style="background:linear-gradient(135deg,#1d4ed8,#2563eb);padding:12px 16px;display:flex;align-items:center;gap:10px;"><div style="font-size:22px;">📘</div><div><div style="font-size:13px;font-weight:700;color:#fff;">Official Cambridge Guide to IELTS</div><div style="font-size:10px;color:rgba(255,255,255,0.7);">⭐⭐⭐⭐⭐ · 3M+ students</div></div><span style="margin-left:auto;font-size:11px;background:rgba(255,255,255,0.2);color:#fff;padding:3px 10px;border-radius:20px;font-weight:800;">$24.99</span></div><div style="padding:14px;"><div style="font-size:12px;color:var(--ink2);line-height:1.5;margin-bottom:10px;">8 complete practice tests with audio. The most trusted official prep book. Used by millions of students worldwide.</div><a href="https://www.amazon.com/dp/1107620694" target="_blank" onclick="toast('🎓 Great choice! Official Cambridge IELTS Guide is the #1 recommended book!')" style="display:inline-block;font-size:12px;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;padding:7px 16px;border-radius:8px;text-decoration:none;font-weight:700;">Buy on Amazon — $24.99 →</a></div></div>
@@ -1418,7 +1418,7 @@ window.STUDYMIND_SUPABASE_CONFIG = Object.freeze({
             </div>
             <div style="background:var(--violet-l);border:1px solid #c4b5fd;border-radius:10px;padding:12px;">
               <div style="font-size:12px;font-weight:700;color:var(--violet);">Family Suggestion</div>
-              <div style="font-size:13px;color:var(--ink2);margin-top:4px;">Schedule a weekly family quiz night using StudyMind's trivia game — great for bonding!</div>
+              <div style="font-size:13px;color:var(--ink2);margin-top:4px;">Schedule a weekly family quiz night using Lumo's trivia game — great for bonding!</div>
             </div>
           </div>
         </div>
@@ -1448,8 +1448,8 @@ window.STUDYMIND_SUPABASE_CONFIG = Object.freeze({
         <div style="display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap;">
           <div style="font-size:28px;">🔐</div>
           <div style="flex:1;">
-            <div style="font-size:15px;font-weight:800;color:var(--emerald-d);margin-bottom:4px;">Secure StudyMind AI Service</div>
-            <div style="font-size:13px;color:var(--ink2);margin-bottom:8px;line-height:1.6;">StudyMind Pro manages AI access centrally. Learners do not need to enter or store personal AI API keys. AI requests are processed securely through the StudyMind Pro backend.</div>
+            <div style="font-size:15px;font-weight:800;color:var(--emerald-d);margin-bottom:4px;">Secure Lumo AI Service</div>
+            <div style="font-size:13px;color:var(--ink2);margin-bottom:8px;line-height:1.6;">Lumo Pro manages AI access centrally. Learners do not need to enter or store personal AI API keys. AI requests are processed securely through the Lumo Pro backend.</div>
             <div style="font-size:12px;color:var(--emerald-d);font-weight:600;" id="api-key-status">Checking secure AI connection…</div>
             <div style="font-size:11px;color:var(--muted);margin-top:8px;">Free learner access is supported by platform-managed AI usage limits. The service administrator manages provider billing and security.</div>
           </div>
@@ -2641,23 +2641,23 @@ const FREE_COURSES = [
   {id:'leadership_mooc',title:'Inspiring & Motivating Individuals',provider:'University of Michigan / Coursera',icon:'🌟',cat:'personal',level:'intermediate',duration:'4 weeks',rating:4.7,students:'670K',cert:true,certProvider:'University of Michigan',thumb:'linear-gradient(135deg,#1e40af,#1d4ed8)',desc:'Leadership and motivation skills — free with Michigan certificate.',skills:['Leadership','Motivation','Teams','Vision'],link:'https://www.coursera.org/learn/motivate-people-teams',autoEnroll:true},
 
   // ══════════════════════════════════════════
-  // 🌟 STUDYMIND MANDATORY SUCCESS COURSES
+  // 🌟 lumo MANDATORY SUCCESS COURSES
   // ══════════════════════════════════════════
-  {id:'money_management',title:'💰 Money Management & Personal Finance',provider:'StudyMind × Khan Academy',icon:'💰',cat:'success',level:'beginner',duration:'3 weeks',rating:5.0,students:'2.1M',cert:true,certProvider:'StudyMind Pro',thumb:'linear-gradient(135deg,#059669,#065f46)',desc:'Master budgeting, saving, investing & building wealth. The 50/30/20 rule, emergency funds, compound interest — every money skill you need for life.',skills:['Budgeting','Saving','Investing','Wealth Building','Debt Management'],link:'https://www.khanacademy.org/college-careers-more/personal-finance',autoEnroll:true,mandatory:true,mandatoryReason:'Financial literacy is the #1 skill schools never teach. Master this to protect and grow your income for life.'},
+  {id:'money_management',title:'💰 Money Management & Personal Finance',provider:'Lumo × Khan Academy',icon:'💰',cat:'success',level:'beginner',duration:'3 weeks',rating:5.0,students:'2.1M',cert:true,certProvider:'Lumo Pro',thumb:'linear-gradient(135deg,#059669,#065f46)',desc:'Master budgeting, saving, investing & building wealth. The 50/30/20 rule, emergency funds, compound interest — every money skill you need for life.',skills:['Budgeting','Saving','Investing','Wealth Building','Debt Management'],link:'https://www.khanacademy.org/college-careers-more/personal-finance',autoEnroll:true,mandatory:true,mandatoryReason:'Financial literacy is the #1 skill schools never teach. Master this to protect and grow your income for life.'},
 
-  {id:'entrepreneurship_sm',title:'🚀 Entrepreneurship — From Zero to Business',provider:'StudyMind × Wharton / UPenn',icon:'🚀',cat:'success',level:'beginner',duration:'6 weeks',rating:5.0,students:'1.8M',cert:true,certProvider:'StudyMind Pro',thumb:'linear-gradient(135deg,#7c3aed,#4f46e5)',desc:'Idea generation, validation, MVP building, getting first customers, scaling & funding. Real-world frameworks from Wharton Business School.',skills:['Idea Validation','MVP','Business Plan','Funding','Growth Hacking','Pitch Deck'],link:'https://www.coursera.org/specializations/wharton-entrepreneurship',autoEnroll:true,mandatory:true,mandatoryReason:'9 out of 10 successful people wish they learned entrepreneurship earlier. Your big idea starts here.'},
+  {id:'entrepreneurship_sm',title:'🚀 Entrepreneurship — From Zero to Business',provider:'Lumo × Wharton / UPenn',icon:'🚀',cat:'success',level:'beginner',duration:'6 weeks',rating:5.0,students:'1.8M',cert:true,certProvider:'Lumo Pro',thumb:'linear-gradient(135deg,#7c3aed,#4f46e5)',desc:'Idea generation, validation, MVP building, getting first customers, scaling & funding. Real-world frameworks from Wharton Business School.',skills:['Idea Validation','MVP','Business Plan','Funding','Growth Hacking','Pitch Deck'],link:'https://www.coursera.org/specializations/wharton-entrepreneurship',autoEnroll:true,mandatory:true,mandatoryReason:'9 out of 10 successful people wish they learned entrepreneurship earlier. Your big idea starts here.'},
 
-  {id:'sales_communication',title:'🎯 Sales, Communication & Persuasion Power',provider:'StudyMind × HubSpot Academy',icon:'🎯',cat:'success',level:'beginner',duration:'4 weeks',rating:5.0,students:'2.4M',cert:true,certProvider:'StudyMind Pro + HubSpot',thumb:'linear-gradient(135deg,#ea580c,#dc2626)',desc:'Master selling, negotiating, persuading and communicating with confidence. Cialdini\'s 6 laws, SPIN Selling, storytelling, and closing techniques.',skills:['Persuasion','Negotiation','Storytelling','Cold Outreach','Objection Handling','Body Language'],link:'https://academy.hubspot.com/courses/sales-training',autoEnroll:true,mandatory:true,mandatoryReason:'Every great leader and business owner is first a great communicator. This skill multiplies your income.'},
+  {id:'sales_communication',title:'🎯 Sales, Communication & Persuasion Power',provider:'Lumo × HubSpot Academy',icon:'🎯',cat:'success',level:'beginner',duration:'4 weeks',rating:5.0,students:'2.4M',cert:true,certProvider:'Lumo Pro + HubSpot',thumb:'linear-gradient(135deg,#ea580c,#dc2626)',desc:'Master selling, negotiating, persuading and communicating with confidence. Cialdini\'s 6 laws, SPIN Selling, storytelling, and closing techniques.',skills:['Persuasion','Negotiation','Storytelling','Cold Outreach','Objection Handling','Body Language'],link:'https://academy.hubspot.com/courses/sales-training',autoEnroll:true,mandatory:true,mandatoryReason:'Every great leader and business owner is first a great communicator. This skill multiplies your income.'},
 
-  {id:'ai_solo_business',title:'🤖 AI Agents & Solo AI Business Builder',provider:'StudyMind × DeepLearning.AI',icon:'🤖',cat:'success',level:'beginner',duration:'5 weeks',rating:5.0,students:'980K',cert:true,certProvider:'StudyMind Pro',thumb:'linear-gradient(135deg,#0369a1,#7c3aed)',desc:'Build AI agents, automate your business, use ChatGPT/Claude/Midjourney to generate income. Become a solo AI entrepreneur earning ৳1L+/month.',skills:['AI Tools','Prompt Engineering','AI Agents','Automation','No-Code AI','Freelancing with AI'],link:'https://www.deeplearning.ai/short-courses/',autoEnroll:true,mandatory:true,mandatoryReason:'AI is replacing jobs AND creating new millionaires. Be the builder, not the replaced. Start your AI business today.'},
+  {id:'ai_solo_business',title:'🤖 AI Agents & Solo AI Business Builder',provider:'Lumo × DeepLearning.AI',icon:'🤖',cat:'success',level:'beginner',duration:'5 weeks',rating:5.0,students:'980K',cert:true,certProvider:'Lumo Pro',thumb:'linear-gradient(135deg,#0369a1,#7c3aed)',desc:'Build AI agents, automate your business, use ChatGPT/Claude/Midjourney to generate income. Become a solo AI entrepreneur earning ৳1L+/month.',skills:['AI Tools','Prompt Engineering','AI Agents','Automation','No-Code AI','Freelancing with AI'],link:'https://www.deeplearning.ai/short-courses/',autoEnroll:true,mandatory:true,mandatoryReason:'AI is replacing jobs AND creating new millionaires. Be the builder, not the replaced. Start your AI business today.'},
 
-  {id:'digital_marketing_sm',title:'📣 Digital Marketing & Growth Hacking',provider:'StudyMind × Google',icon:'📣',cat:'success',level:'beginner',duration:'4 weeks',rating:4.9,students:'3.2M',cert:true,certProvider:'StudyMind Pro + Google',thumb:'linear-gradient(135deg,#db2777,#9333ea)',desc:'Facebook Ads, SEO, email marketing, WhatsApp funnels, content strategy. Grow from 0 to millions online — with free tools.',skills:['Facebook Ads','SEO','Email Marketing','WhatsApp Marketing','Content Strategy','Analytics'],link:'https://grow.google/certificates/',autoEnroll:true,mandatory:true,mandatoryReason:'You can have the best product in the world — without marketing nobody knows. This course fixes that.'},
+  {id:'digital_marketing_sm',title:'📣 Digital Marketing & Growth Hacking',provider:'Lumo × Google',icon:'📣',cat:'success',level:'beginner',duration:'4 weeks',rating:4.9,students:'3.2M',cert:true,certProvider:'Lumo Pro + Google',thumb:'linear-gradient(135deg,#db2777,#9333ea)',desc:'Facebook Ads, SEO, email marketing, WhatsApp funnels, content strategy. Grow from 0 to millions online — with free tools.',skills:['Facebook Ads','SEO','Email Marketing','WhatsApp Marketing','Content Strategy','Analytics'],link:'https://grow.google/certificates/',autoEnroll:true,mandatory:true,mandatoryReason:'You can have the best product in the world — without marketing nobody knows. This course fixes that.'},
 
-  {id:'productivity_habits',title:'⚡ Ultra-Productivity & Success Habits',provider:'StudyMind × Stanford',icon:'⚡',cat:'success',level:'beginner',duration:'3 weeks',rating:4.9,students:'1.6M',cert:true,certProvider:'StudyMind Pro',thumb:'linear-gradient(135deg,#d97706,#b45309)',desc:'Atomic Habits, deep work, morning routines, time blocking, focus techniques. Build daily systems that the world\'s most successful people use.',skills:['Habit Building','Time Management','Deep Work','Goal Setting','Focus'],link:'https://www.coursera.org/learn/the-science-of-well-being',autoEnroll:true,mandatory:true,mandatoryReason:'Success is not talent — it\'s systems. Build habits that make success automatic.'},
+  {id:'productivity_habits',title:'⚡ Ultra-Productivity & Success Habits',provider:'Lumo × Stanford',icon:'⚡',cat:'success',level:'beginner',duration:'3 weeks',rating:4.9,students:'1.6M',cert:true,certProvider:'Lumo Pro',thumb:'linear-gradient(135deg,#d97706,#b45309)',desc:'Atomic Habits, deep work, morning routines, time blocking, focus techniques. Build daily systems that the world\'s most successful people use.',skills:['Habit Building','Time Management','Deep Work','Goal Setting','Focus'],link:'https://www.coursera.org/learn/the-science-of-well-being',autoEnroll:true,mandatory:true,mandatoryReason:'Success is not talent — it\'s systems. Build habits that make success automatic.'},
 
-  {id:'public_speaking',title:'🎤 Public Speaking & Confidence',provider:'StudyMind × TED',icon:'🎤',cat:'success',level:'beginner',duration:'4 weeks',rating:4.9,students:'1.1M',cert:true,certProvider:'StudyMind Pro',thumb:'linear-gradient(135deg,#0d9488,#0f766e)',desc:'Overcome fear of speaking, master storytelling, command any room. From job interviews to TEDx talks — speak with confidence and charisma.',skills:['Public Speaking','Storytelling','Confidence','Presentation','Body Language'],link:'https://www.coursera.org/learn/communicating-to-persuade',autoEnroll:true,mandatory:true,mandatoryReason:'The #1 fear in the world is public speaking. Master it and you master opportunity.'},
+  {id:'public_speaking',title:'🎤 Public Speaking & Confidence',provider:'Lumo × TED',icon:'🎤',cat:'success',level:'beginner',duration:'4 weeks',rating:4.9,students:'1.1M',cert:true,certProvider:'Lumo Pro',thumb:'linear-gradient(135deg,#0d9488,#0f766e)',desc:'Overcome fear of speaking, master storytelling, command any room. From job interviews to TEDx talks — speak with confidence and charisma.',skills:['Public Speaking','Storytelling','Confidence','Presentation','Body Language'],link:'https://www.coursera.org/learn/communicating-to-persuade',autoEnroll:true,mandatory:true,mandatoryReason:'The #1 fear in the world is public speaking. Master it and you master opportunity.'},
 
-  {id:'networking_sm',title:'🤝 Networking & Building Influence',provider:'StudyMind × LinkedIn Learning',icon:'🤝',cat:'success',level:'beginner',duration:'2 weeks',rating:4.8,students:'890K',cert:true,certProvider:'StudyMind Pro',thumb:'linear-gradient(135deg,#1e40af,#0369a1)',desc:'Build a powerful network, create genuine relationships, grow your influence on LinkedIn, WhatsApp, and in real life. Your network is your net worth.',skills:['Networking','LinkedIn','Relationship Building','Personal Branding'],link:'https://www.linkedin.com/learning/',autoEnroll:true,mandatory:true,mandatoryReason:'Your network is your net worth. The right connection can change your entire life.'},
+  {id:'networking_sm',title:'🤝 Networking & Building Influence',provider:'Lumo × LinkedIn Learning',icon:'🤝',cat:'success',level:'beginner',duration:'2 weeks',rating:4.8,students:'890K',cert:true,certProvider:'Lumo Pro',thumb:'linear-gradient(135deg,#1e40af,#0369a1)',desc:'Build a powerful network, create genuine relationships, grow your influence on LinkedIn, WhatsApp, and in real life. Your network is your net worth.',skills:['Networking','LinkedIn','Relationship Building','Personal Branding'],link:'https://www.linkedin.com/learning/',autoEnroll:true,mandatory:true,mandatoryReason:'Your network is your net worth. The right connection can change your entire life.'},
 ];
 
 function renderCourses(){
@@ -2729,7 +2729,7 @@ function renderCourseGrid(list, mode){
     const isEnrolled=enrolledCourses.has(c.id);
     const isDone=completedCourses.has(c.id);
     const stars='★'.repeat(Math.round(c.rating))+'☆'.repeat(5-Math.round(c.rating));
-    const mandatoryBadge = c.mandatory ? '<div style="background:linear-gradient(135deg,#7c3aed,#ea580c);color:#fff;font-size:10px;font-weight:800;padding:3px 8px;border-radius:4px;display:inline-block;margin-bottom:6px;">⭐ MANDATORY — StudyMind Recommends</div><br>' : '';
+    const mandatoryBadge = c.mandatory ? '<div style="background:linear-gradient(135deg,#7c3aed,#ea580c);color:#fff;font-size:10px;font-weight:800;padding:3px 8px;border-radius:4px;display:inline-block;margin-bottom:6px;">⭐ MANDATORY — Lumo Recommends</div><br>' : '';
     const mandatoryReason = c.mandatory && c.mandatoryReason ? `<div style="background:var(--violet-l);border-left:3px solid var(--violet);border-radius:0 8px 8px 0;padding:8px 10px;font-size:11px;color:var(--violet);font-weight:600;margin-bottom:8px;line-height:1.4;">💡 ${c.mandatoryReason}</div>` : '';
     return `<div style="background:var(--white);border:1.5px solid ${isDone?'var(--emerald)':isEnrolled?'#c4b5fd':' var(--border)'};border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 30px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow='var(--shadow)'">
       <!-- Thumb -->
@@ -2783,7 +2783,7 @@ function autoEnrollCourse(id){
 function openCourseLearn(id, link){
   // Open course in a new tab - user is "auto-logged in" via the platform's SSO-style experience
   window.open(link,'_blank');
-  toast('📚 Opening course... Your StudyMind login carries over — look for "Continue with Google/Email" on the course site.');
+  toast('📚 Opening course... Your Lumo login carries over — look for "Continue with Google/Email" on the course site.');
 }
 
 function markComplete(id){
@@ -2808,7 +2808,7 @@ function viewCertificate(id){
       <div style="position:absolute;top:16px;left:16px;right:16px;bottom:16px;border:2px solid rgba(255,255,255,0.08);border-radius:16px;pointer-events:none;"></div>
       <div style="font-size:40px;margin-bottom:12px;">${c.icon}</div>
       <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px;">Certificate of Completion</div>
-      <div style="font-family:'Fraunces',serif;font-size:32px;font-weight:700;color:#fff;margin-bottom:4px;">StudyMind Pro</div>
+      <div style="font-family:'Fraunces',serif;font-size:32px;font-weight:700;color:#fff;margin-bottom:4px;">Lumo Pro</div>
       <div style="font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:24px;">In partnership with ${c.certProvider}</div>
       <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:4px;">This certifies that</div>
       <div style="font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:#34d399;margin-bottom:4px;">${state.name||'Student'}</div>
@@ -2850,7 +2850,7 @@ function downloadCertificate(){
 function shareCertWhatsApp(){
   const id=state._currentCertId;
   const c=FREE_COURSES.find(x=>x.id===id);
-  const msg=`🎓 *Certificate of Completion*\n\n✅ I just completed: *${c?.title}*\n🏫 Provider: ${c?.provider}\n📅 Date: ${new Date().toLocaleDateString('en-GB')}\n\n🆔 Cert ID: SM-${(id||'').toUpperCase().slice(0,8)}\n\n📚 Earned via StudyMind Pro — Free Courses Platform`;
+  const msg=`🎓 *Certificate of Completion*\n\n✅ I just completed: *${c?.title}*\n🏫 Provider: ${c?.provider}\n📅 Date: ${new Date().toLocaleDateString('en-GB')}\n\n🆔 Cert ID: SM-${(id||'').toUpperCase().slice(0,8)}\n\n📚 Earned via Lumo Pro — Free Courses Platform`;
   window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`,'_blank');
   toast('📲 Sharing certificate via WhatsApp!');
 }
@@ -4389,7 +4389,7 @@ function shareStudentReport(studentName){
 }
 function shareStudentEmail(studentName){
   const report = buildReportText(studentName);
-  const subject = encodeURIComponent(`StudyMind Report — ${studentName} — ${new Date().toLocaleDateString('en-GB')}`);
+  const subject = encodeURIComponent(`Lumo Report — ${studentName} — ${new Date().toLocaleDateString('en-GB')}`);
   const body = encodeURIComponent(report.replace(/\*/g,''));
   window.open(`mailto:?subject=${subject}&body=${body}`, '_blank');
   toast(`✉️ Sharing ${studentName}'s report via Email...`);
@@ -4627,7 +4627,7 @@ function selectInstitutionalPlan(name){
 // Uses Pollinations AI (100% free, no signup)
 // ═══════════════════════════════════════
 async function callFreeAI(){
-  throw new Error('Secure StudyMind AI backend is not connected. Please complete the Supabase setup.');
+  throw new Error('Secure Lumo AI backend is not connected. Please complete the Supabase setup.');
 }
 
 // GPT-STYLE AI TUTOR (Free AI — No Key Needed)
@@ -4684,7 +4684,7 @@ async function sendGptMessage(){
   const classLabels = {class6:'Class 6',class7:'Class 7',class8:'Class 8',class9:'Class 9 (SSC year 1)',class10:'Class 10 (SSC)',class11:'Class 11 (HSC year 1)',class12:'Class 12 (HSC)',undergrad:'Undergraduate',postgrad:'Postgraduate'};
   const classLabel = classLabels[classLevel]||classLevel;
 
-  const systemPrompt = `You are StudyMind AI — a professional, expert tutor. Give answers exactly like ChatGPT or a real teacher would: clear, accurate, well-structured, and to the point.
+  const systemPrompt = `You are Lumo AI — a professional, expert tutor. Give answers exactly like ChatGPT or a real teacher would: clear, accurate, well-structured, and to the point.
 
 Student level: ${classLabel}, Field: ${field}${subject ? ', Subject focus: '+subject : ''}.
 Response style: ${styleInstructions[style]||'Give a thorough, detailed explanation with examples.'}
@@ -4744,11 +4744,11 @@ function getSmartFallback(question, subject){
 
   // ── BUSINESS & SUCCESS TOPICS (Priority — your new courses) ──
   if(q.includes('money') || q.includes('finance') || q.includes('budget') || q.includes('saving') || q.includes('invest')){
-    return `💰 **Money Management — Your Complete Guide**\n\n**The 50/30/20 Rule:**\n• **50%** → Needs (rent, food, bills)\n• **30%** → Wants (entertainment, hobbies)\n• **20%** → Savings & investments\n\n**Key Principles:**\n1. **Pay yourself first** — save before you spend\n2. **Emergency fund** — keep 3-6 months of expenses saved\n3. **Avoid bad debt** — no credit card debt at high interest\n4. **Invest early** — ৳1,000 invested at 20 = ৳8,000 at 60 (compounding)\n\n**Best Free Tools:** Google Sheets budget tracker, bKash savings, bank FD\n\n**StudyMind Tip:** Take our free "Money Management" course for a full certificate! 💳\n\nNeed more help? Ask a follow-up! 😊`;
+    return `💰 **Money Management — Your Complete Guide**\n\n**The 50/30/20 Rule:**\n• **50%** → Needs (rent, food, bills)\n• **30%** → Wants (entertainment, hobbies)\n• **20%** → Savings & investments\n\n**Key Principles:**\n1. **Pay yourself first** — save before you spend\n2. **Emergency fund** — keep 3-6 months of expenses saved\n3. **Avoid bad debt** — no credit card debt at high interest\n4. **Invest early** — ৳1,000 invested at 20 = ৳8,000 at 60 (compounding)\n\n**Best Free Tools:** Google Sheets budget tracker, bKash savings, bank FD\n\n**Lumo Tip:** Take our free "Money Management" course for a full certificate! 💳\n\nNeed more help? Ask a follow-up! 😊`;
   }
 
   if(q.includes('entrepreneur') || q.includes('startup') || q.includes('business idea') || q.includes('own business')){
-    return `🚀 **How to Start Your Entrepreneurship Journey**\n\n**The 5-Step Startup Formula:**\n1. **Find a Problem** — What frustrates people daily? That's your opportunity\n2. **Validate the Idea** — Ask 20 people: "Would you pay for this?"\n3. **Build an MVP** — Minimum viable product first, perfect it later\n4. **Get First Customer** — One sale is more valuable than 100 plans\n5. **Scale What Works** — Double down on what brings customers\n\n**Bangladesh Opportunity Areas:**\n• EdTech (like StudyMind!) • Agri-tech • Health tech • E-commerce\n\n**Free Resources:** Wharton Entrepreneurship (Coursera), Y Combinator Startup School\n\n💡 *The best time to start is NOW. Start small, learn fast!*\n\nNeed more help? Ask a follow-up! 😊`;
+    return `🚀 **How to Start Your Entrepreneurship Journey**\n\n**The 5-Step Startup Formula:**\n1. **Find a Problem** — What frustrates people daily? That's your opportunity\n2. **Validate the Idea** — Ask 20 people: "Would you pay for this?"\n3. **Build an MVP** — Minimum viable product first, perfect it later\n4. **Get First Customer** — One sale is more valuable than 100 plans\n5. **Scale What Works** — Double down on what brings customers\n\n**Bangladesh Opportunity Areas:**\n• EdTech (like Lumo!) • Agri-tech • Health tech • E-commerce\n\n**Free Resources:** Wharton Entrepreneurship (Coursera), Y Combinator Startup School\n\n💡 *The best time to start is NOW. Start small, learn fast!*\n\nNeed more help? Ask a follow-up! 😊`;
   }
 
   if(q.includes('sales') || q.includes('sell') || q.includes('convinc') || q.includes('communication') || q.includes('persuad')){
@@ -4756,7 +4756,7 @@ function getSmartFallback(question, subject){
   }
 
   if(q.includes('ai agent') || q.includes('solo') || q.includes('ai business') || q.includes('automat') || q.includes('make money with ai') || q.includes('ai income')){
-    return `🤖 **How to Build a Solo AI Business & Generate Income**\n\n**Step 1 — Learn the Tools (Free):**\n• **ChatGPT / Claude** — Content, coding, strategy\n• **Midjourney / DALL-E** — AI images & design\n• **Make.com / Zapier** — Automate workflows\n• **ElevenLabs** — AI voice generation\n• **Cursor / GitHub Copilot** — AI coding assistant\n\n**Step 2 — Pick Your AI Business Model:**\n1. **AI Content Agency** — Write blogs, social posts, scripts for clients\n2. **AI Design Studio** — Logos, thumbnails, ads using AI tools\n3. **AI Automation Consultant** — Automate businesses' workflows\n4. **AI Tutor** — Teach others how to use AI (like StudyMind!)\n5. **SaaS with AI** — Build niche AI tools (no-code with Bubble.io)\n\n**Step 3 — Get First Clients:**\n• Fiverr + Upwork profile with AI services\n• LinkedIn content about AI results you achieved\n• Local businesses — offer free AI audit first\n\n**Realistic Income:** ৳50,000–৳5,00,000/month within 6-12 months\n\nNeed more help? Ask a follow-up! 😊`;
+    return `🤖 **How to Build a Solo AI Business & Generate Income**\n\n**Step 1 — Learn the Tools (Free):**\n• **ChatGPT / Claude** — Content, coding, strategy\n• **Midjourney / DALL-E** — AI images & design\n• **Make.com / Zapier** — Automate workflows\n• **ElevenLabs** — AI voice generation\n• **Cursor / GitHub Copilot** — AI coding assistant\n\n**Step 2 — Pick Your AI Business Model:**\n1. **AI Content Agency** — Write blogs, social posts, scripts for clients\n2. **AI Design Studio** — Logos, thumbnails, ads using AI tools\n3. **AI Automation Consultant** — Automate businesses' workflows\n4. **AI Tutor** — Teach others how to use AI (like Lumo!)\n5. **SaaS with AI** — Build niche AI tools (no-code with Bubble.io)\n\n**Step 3 — Get First Clients:**\n• Fiverr + Upwork profile with AI services\n• LinkedIn content about AI results you achieved\n• Local businesses — offer free AI audit first\n\n**Realistic Income:** ৳50,000–৳5,00,000/month within 6-12 months\n\nNeed more help? Ask a follow-up! 😊`;
   }
 
   if(q.includes('supply chain') || q.includes('brand') || q.includes('product') || q.includes('manufactur') || q.includes('import') || q.includes('export')){
@@ -4764,7 +4764,7 @@ function getSmartFallback(question, subject){
   }
 
   if(q.includes('leadership') || q.includes('manage') || q.includes('team') || q.includes('motivat')){
-    return `👑 **Leadership & Team Management Mastery**\n\n**The 3 Leadership Styles:**\n1. **Transformational** — Inspire with vision (Elon Musk style)\n2. **Servant Leader** — Serve your team first (Best for startups)\n3. **Democratic** — Involve team in decisions\n\n**How to Motivate People (Maslow's Needs):**\n• Basic needs → Fair salary\n• Safety → Job security, clear expectations\n• Belonging → Team culture, inclusion\n• Esteem → Recognition, promotion\n• Growth → Learning opportunities (like StudyMind!)\n\n**Daily Leadership Habits:**\n• Give feedback within 24 hours\n• 1-on-1 check-ins weekly\n• Celebrate small wins publicly\n• Own mistakes, share credit\n\nNeed more help? Ask a follow-up! 😊`;
+    return `👑 **Leadership & Team Management Mastery**\n\n**The 3 Leadership Styles:**\n1. **Transformational** — Inspire with vision (Elon Musk style)\n2. **Servant Leader** — Serve your team first (Best for startups)\n3. **Democratic** — Involve team in decisions\n\n**How to Motivate People (Maslow's Needs):**\n• Basic needs → Fair salary\n• Safety → Job security, clear expectations\n• Belonging → Team culture, inclusion\n• Esteem → Recognition, promotion\n• Growth → Learning opportunities (like Lumo!)\n\n**Daily Leadership Habits:**\n• Give feedback within 24 hours\n• 1-on-1 check-ins weekly\n• Celebrate small wins publicly\n• Own mistakes, share credit\n\nNeed more help? Ask a follow-up! 😊`;
   }
 
   if(q.includes('digital market') || q.includes('social media') || q.includes('facebook ad') || q.includes('seo') || q.includes('content market')){
@@ -4791,13 +4791,13 @@ function getSmartFallback(question, subject){
     return `💧 **The Water Cycle**\n\n**4 Main Processes:**\n1. **Evaporation** — Sun heats water → turns to vapour\n2. **Condensation** — Vapour cools → forms clouds\n3. **Precipitation** — Water falls as rain/snow\n4. **Collection/Runoff** — Water fills rivers, oceans, groundwater\n\n**Also includes:** Transpiration (plants release water), Infiltration (water enters soil)\n\n💡 *The Earth has been recycling the same water for 4 billion years!*\n\nNeed more help? Ask a follow-up! 😊`;
   }
   if(q.includes('study') || q.includes('learn') || q.includes('memory') || q.includes('focus') || q.includes('exam tip')){
-    return `📚 **Science-Backed Study Techniques**\n\n**Top 5 Proven Methods:**\n1. **Active Recall** — Close book, write what you remember (2x better than re-reading)\n2. **Spaced Repetition** — Review: Day 1 → Day 3 → Day 7 → Day 14\n3. **Pomodoro Technique** — 25 min study + 5 min break × 4 = 1 cycle\n4. **Feynman Technique** — Explain it simply as if teaching a child\n5. **Mind Mapping** — Connect concepts visually\n\n**Before Exam:**\n• Sleep 8 hours — memory consolidates during sleep\n• Light exercise → increases blood flow to brain\n• Review summary notes, not full chapters\n\n💡 *StudyMind AI is designed around these exact principles!*\n\nNeed more help? Ask a follow-up! 😊`;
+    return `📚 **Science-Backed Study Techniques**\n\n**Top 5 Proven Methods:**\n1. **Active Recall** — Close book, write what you remember (2x better than re-reading)\n2. **Spaced Repetition** — Review: Day 1 → Day 3 → Day 7 → Day 14\n3. **Pomodoro Technique** — 25 min study + 5 min break × 4 = 1 cycle\n4. **Feynman Technique** — Explain it simply as if teaching a child\n5. **Mind Mapping** — Connect concepts visually\n\n**Before Exam:**\n• Sleep 8 hours — memory consolidates during sleep\n• Light exercise → increases blood flow to brain\n• Review summary notes, not full chapters\n\n💡 *Lumo AI is designed around these exact principles!*\n\nNeed more help? Ask a follow-up! 😊`;
   }
 
   // ── GENERIC INTELLIGENT RESPONSE ──
   // Try to give a real answer based on the actual question
   const words = question.split(' ').slice(0,6).join(' ');
-  return `🤖 **StudyMind AI — Answer for: "${words}${question.length>30?'...':''}"**\n\n${subject && subject!=='General' ? `**Subject: ${subject}**\n\n` : ''}I'm providing an answer from my knowledge base while reconnecting to the live AI.\n\n**Key Points on Your Topic:**\n• This is an important topic worth understanding deeply\n• Break it into: Definition → How it works → Why it matters → Examples\n• Connect new knowledge to what you already know\n\n**Study Strategy for This Topic:**\n1. Read your textbook section once for overview\n2. Write key terms without looking\n3. Draw a diagram or concept map\n4. Test yourself with 5 questions\n5. Teach it to someone else (or explain to a mirror!)\n\n**💡 Pro Tip:** For the best AI answer, rephrase your question with more specific detail — e.g. instead of "supply chain", ask "How do I find suppliers for a clothing brand in Bangladesh?"\n\n🔄 *Live AI is reconnecting. Please ask your question again for a full personalized answer!*\n\nNeed more help? Ask a follow-up! 😊`;
+  return `🤖 **Lumo AI — Answer for: "${words}${question.length>30?'...':''}"**\n\n${subject && subject!=='General' ? `**Subject: ${subject}**\n\n` : ''}I'm providing an answer from my knowledge base while reconnecting to the live AI.\n\n**Key Points on Your Topic:**\n• This is an important topic worth understanding deeply\n• Break it into: Definition → How it works → Why it matters → Examples\n• Connect new knowledge to what you already know\n\n**Study Strategy for This Topic:**\n1. Read your textbook section once for overview\n2. Write key terms without looking\n3. Draw a diagram or concept map\n4. Test yourself with 5 questions\n5. Teach it to someone else (or explain to a mirror!)\n\n**💡 Pro Tip:** For the best AI answer, rephrase your question with more specific detail — e.g. instead of "supply chain", ask "How do I find suppliers for a clothing brand in Bangladesh?"\n\n🔄 *Live AI is reconnecting. Please ask your question again for a full personalized answer!*\n\nNeed more help? Ask a follow-up! 😊`;
 }
 
 function renderMarkdown(text){
@@ -5190,7 +5190,7 @@ function playTutorialVideo(ytId, title, channel, views, duration){
   toast('▶ Opening "' + (title||'Video') + '" on YouTube...');
 
   // Auto-return: poll every second to detect when the YouTube tab is closed.
-  // When the user closes it (after watching), we bring StudyMind back into focus
+  // When the user closes it (after watching), we bring Lumo back into focus
   // and show a "Welcome back" prompt encouraging them to continue learning.
   if(ytTab){
     var _returnCheck = setInterval(function(){
@@ -5354,7 +5354,7 @@ Create a 5-step personalized learning roadmap. Return ONLY JSON:
 
 // ── WhatsApp / Email Sharing ──
 function buildReportText(studentName){
-  return `📊 *StudyMind Progress Report*\n👤 Student: ${studentName||state.name}\n📅 Date: ${new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}\n\n✅ Tasks completed this week: 18\n⏱️ Study hours: 14.2h\n🎯 Avg exam score: 78%\n🔥 Study streak: 7 days\n\n📚 *Subject Performance:*\n• Mathematics: 82% ↑\n• Physics: 74%\n• Chemistry: 68% ↓ (needs attention)\n• English: 85% ↑\n\n🤖 *AI Suggestion:*\nFocus on Chemistry — score dropped 6 points this week. Recommend 30 min extra daily practice and use the AI Tutor for Chapter 5 concepts.\n\n🔗 View full report: studymind.app/report`;
+  return `📊 *Lumo Progress Report*\n👤 Student: ${studentName||state.name}\n📅 Date: ${new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}\n\n✅ Tasks completed this week: 18\n⏱️ Study hours: 14.2h\n🎯 Avg exam score: 78%\n🔥 Study streak: 7 days\n\n📚 *Subject Performance:*\n• Mathematics: 82% ↑\n• Physics: 74%\n• Chemistry: 68% ↓ (needs attention)\n• English: 85% ↑\n\n🤖 *AI Suggestion:*\nFocus on Chemistry — score dropped 6 points this week. Recommend 30 min extra daily practice and use the AI Tutor for Chapter 5 concepts.\n\n🔗 View full report: lumo.app/report`;
 }
 
 function shareViaWhatsApp(){
@@ -5366,7 +5366,7 @@ function shareViaWhatsApp(){
 
 function shareViaEmail(){
   const report = buildReportText();
-  const subject = encodeURIComponent(`StudyMind Progress Report — ${state.name} — ${new Date().toLocaleDateString('en-GB')}`);
+  const subject = encodeURIComponent(`Lumo Progress Report — ${state.name} — ${new Date().toLocaleDateString('en-GB')}`);
   const body = encodeURIComponent(report.replace(/\*/g,''));
   window.open(`mailto:?subject=${subject}&body=${body}`, '_blank');
   toast('✉️ Opening email to share report...');
@@ -6061,7 +6061,7 @@ function toggleFeedbackChat(){
   if(w) w.style.display=_fbOpen?'flex':'none';
   if(btn) btn.textContent=_fbOpen?'✕':'💬';
   if(_fbOpen && _fbHistory.length===0){
-    appendFbMsg('ai','👋 Hi! I\'m your StudyMind Assistant.\n\nI can help you with:\n• 🐛 Bug reports\n• 💡 Feature suggestions\n• ❓ How to use any feature\n• 📚 Study guidance\n\nWhat do you need help with?');
+    appendFbMsg('ai','👋 Hi! I\'m your Lumo Assistant.\n\nI can help you with:\n• 🐛 Bug reports\n• 💡 Feature suggestions\n• ❓ How to use any feature\n• 📚 Study guidance\n\nWhat do you need help with?');
   }
 }
 
@@ -6092,7 +6092,7 @@ async function sendFbMessage(){
     var history = _fbHistory.filter(m=>m.text!=='...').map(m=>({role:m.role==='ai'?'assistant':'user',content:m.text}));
     var reply = await callFreeAI(
       history,
-      'You are StudyMind Pro\'s helpful support assistant. The app is an AI study platform with: AI Tutor, free courses, video player, AI tests, tutorial hub, 101 subjects, study timer, games, family dashboard. Help users warmly and concisely. Use emojis. Keep replies under 150 words.',
+      'You are Lumo Pro\'s helpful support assistant. The app is an AI study platform with: AI Tutor, free courses, video player, AI tests, tutorial hub, 101 subjects, study timer, games, family dashboard. Help users warmly and concisely. Use emojis. Keep replies under 150 words.',
       300
     );
     if(typing) typing.querySelector('div:last-child').innerHTML=reply.replace(/\n/g,'<br>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
@@ -6569,7 +6569,7 @@ function filterSuccessCourses(){
   filterCourses();
   var section = document.getElementById('course-grid');
   if(section) section.scrollIntoView({behavior:'smooth'});
-  toast('🌟 Showing 8 Mandatory Success Courses — StudyMind Recommends All!');
+  toast('🌟 Showing 8 Mandatory Success Courses — Lumo Recommends All!');
 }
 
 
@@ -6598,22 +6598,22 @@ function fsInit(){const sel=document.getElementById('fs-track');if(sel&&sel.opti
 function fsUpdateStats(){const e=document.getElementById('fs-enrolled-count'),c=document.getElementById('fs-cert-count');if(e)e.textContent=Object.keys(fsProgress).length;if(c)c.textContent=fsCompleted.length;}
 function fsRenderCatalog(){const el=document.getElementById('fs-catalog');if(!el)return;const q=(document.getElementById('fs-search')?.value||'').toLowerCase(),track=document.getElementById('fs-track')?.value||'all',level=document.getElementById('fs-level')?.value||'all';const list=FS_COURSES.filter(c=>(track==='all'||c.track===track)&&(level==='all'||c.level===level)&&(!q||(c.title+' '+c.track+' '+c.desc).toLowerCase().includes(q)));document.getElementById('fs-results-count').textContent=list.length+' courses';el.innerHTML=list.map(c=>{const done=fsCompleted.includes(c.id),started=!!fsProgress[c.id];return `<article class="course-card" style="padding:15px;cursor:pointer" onclick="fsOpenCourse('${c.id}')"><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:27px">${c.icon}</span><span class="badge ${done?'badge-emerald':'badge-muted'}">${done?'Completed':started?'In progress':c.level}</span></div><div style="font-size:10px;color:var(--muted);margin-top:10px">COURSE ${String(c.number).padStart(3,'0')} · ${c.track}</div><div style="font-size:14px;font-weight:800;margin:5px 0;line-height:1.4">${c.title}</div><div style="font-size:11px;color:var(--muted)">⏱ ${c.duration} · Practical project · AI lesson</div><div style="margin-top:12px;color:var(--emerald-d);font-size:12px;font-weight:800">${done?'View certificate →':'Open learning studio →'}</div></article>`}).join('')||'<div class="card">No matching courses. Try another search.</div>';}
 function fsOpenCourse(id){const c=FS_COURSES.find(x=>x.id===id);if(!c)return;fsCurrentCourse=c;fsLessonData=null;fsProgress[id]=fsProgress[id]||{lesson:false,practice:false,quiz:false};fsSave();const st=document.getElementById('fs-studio');st.style.display='block';st.innerHTML=`<div class="card" style="border-top:4px solid var(--teal)"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><div><div style="font-size:11px;color:var(--muted);font-weight:700">FUTURE SKILLS ACADEMY · COURSE ${String(c.number).padStart(3,'0')}</div><div style="font-size:22px;font-weight:800;margin:4px 0">${c.icon} ${c.title}</div><div style="font-size:12px;color:var(--muted)">${c.track} · ${c.level} · ${c.duration}</div></div><button class="btn btn-secondary btn-sm" onclick="document.getElementById('fs-studio').style.display='none'">✕ Close</button></div><div style="background:#f0fdfa;padding:13px;border-radius:10px;margin:16px 0;font-size:13px;line-height:1.6">${c.desc}<br><b>Learning path:</b> AI lesson → worked example → practical challenge → assessment → certificate.</div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-primary" id="fs-generate-btn" onclick="fsGenerateLesson()">✨ Generate my AI course session</button><button class="btn btn-secondary" onclick="fsSpeakLesson()">🔊 Listen to lesson</button></div><div id="fs-lesson" style="margin-top:18px"></div><div id="fs-practice" style="margin-top:14px"></div><div id="fs-quiz" style="margin-top:14px"></div><div id="fs-certificate-area" style="margin-top:14px"></div></div>`;st.scrollIntoView({behavior:'smooth',block:'start'});fsRenderCatalog();if(fsProgress[id])fsCheckCompletion();}
-async function fsGenerateLesson(){if(!fsCurrentCourse)return;const btn=document.getElementById('fs-generate-btn'),out=document.getElementById('fs-lesson');btn.disabled=true;btn.textContent='⏳ Creating your course session...';out.innerHTML='<div class="card">Your AI instructor is preparing a structured lesson, examples, practical task and assessment. This may take a moment.</div>';const c=fsCurrentCourse;const prompt=`Create a high-quality, original, beginner-friendly but accurate training session for StudyMind Pro course: "${c.title}" in track "${c.track}" at ${c.level} level. Audience includes non-technical people and technical learners. Return valid JSON only with keys: learning_objectives (array of 3), lesson_title, explanation (4-6 clear paragraphs with headings using plain text), key_terms (array of {term,meaning}), worked_example (step-by-step practical example), real_world_case (specific scenario), practice_task (clear task learner can do), solution_guide (stepwise expected approach), video_search (one concise YouTube search phrase), audio_script (natural spoken lesson under 500 words), quiz (array of 5 objects each with question, options array of 4 strings, answer_index zero-based integer, explanation). Avoid fabricated statistics and unsupported claims. Include safe, ethical practice.`;try{let raw=await callFreeAI([{role:'user',content:prompt}],'You are an expert instructional designer and practical skills instructor. Output valid JSON only. Make lessons specific, useful and actionable.',2600);raw=raw.replace(/```json|```/g,'').trim();let a=raw.indexOf('{'),b=raw.lastIndexOf('}');if(a>=0&&b>a)raw=raw.slice(a,b+1);fsLessonData=JSON.parse(raw);fsRenderLesson();}catch(err){out.innerHTML=`<div class="card" style="border-color:#fecaca;color:#991b1b">AI lesson generation is temporarily unavailable. Please try again. If this continues, the live AI service needs a secure backend connection.</div>`;}finally{btn.disabled=false;btn.textContent='↻ Regenerate AI session';}}
+async function fsGenerateLesson(){if(!fsCurrentCourse)return;const btn=document.getElementById('fs-generate-btn'),out=document.getElementById('fs-lesson');btn.disabled=true;btn.textContent='⏳ Creating your course session...';out.innerHTML='<div class="card">Your AI instructor is preparing a structured lesson, examples, practical task and assessment. This may take a moment.</div>';const c=fsCurrentCourse;const prompt=`Create a high-quality, original, beginner-friendly but accurate training session for Lumo Pro course: "${c.title}" in track "${c.track}" at ${c.level} level. Audience includes non-technical people and technical learners. Return valid JSON only with keys: learning_objectives (array of 3), lesson_title, explanation (4-6 clear paragraphs with headings using plain text), key_terms (array of {term,meaning}), worked_example (step-by-step practical example), real_world_case (specific scenario), practice_task (clear task learner can do), solution_guide (stepwise expected approach), video_search (one concise YouTube search phrase), audio_script (natural spoken lesson under 500 words), quiz (array of 5 objects each with question, options array of 4 strings, answer_index zero-based integer, explanation). Avoid fabricated statistics and unsupported claims. Include safe, ethical practice.`;try{let raw=await callFreeAI([{role:'user',content:prompt}],'You are an expert instructional designer and practical skills instructor. Output valid JSON only. Make lessons specific, useful and actionable.',2600);raw=raw.replace(/```json|```/g,'').trim();let a=raw.indexOf('{'),b=raw.lastIndexOf('}');if(a>=0&&b>a)raw=raw.slice(a,b+1);fsLessonData=JSON.parse(raw);fsRenderLesson();}catch(err){out.innerHTML=`<div class="card" style="border-color:#fecaca;color:#991b1b">AI lesson generation is temporarily unavailable. Please try again. If this continues, the live AI service needs a secure backend connection.</div>`;}finally{btn.disabled=false;btn.textContent='↻ Regenerate AI session';}}
 function fsEscape(x){return String(x??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function fsRenderLesson(){const d=fsLessonData;if(!d)return;const out=document.getElementById('fs-lesson');out.innerHTML=`<div class="card" style="background:#f8fafc"><div style="font-size:18px;font-weight:800">📘 ${fsEscape(d.lesson_title||fsCurrentCourse.title)}</div><h4 style="margin-top:14px">What you will learn</h4><ul>${(d.learning_objectives||[]).map(x=>`<li>${fsEscape(x)}</li>`).join('')}</ul><h4 style="margin-top:14px">Lesson</h4><div style="white-space:pre-wrap;line-height:1.75;font-size:13px">${fsEscape(d.explanation||'')}</div><h4 style="margin-top:14px">Key terms</h4>${(d.key_terms||[]).map(x=>`<div style="padding:8px 0;border-bottom:1px solid var(--border);font-size:13px"><b>${fsEscape(x.term)}:</b> ${fsEscape(x.meaning)}</div>`).join('')}<h4 style="margin-top:14px">🧩 Worked example</h4><div style="white-space:pre-wrap;font-size:13px;line-height:1.7">${fsEscape(d.worked_example||'')}</div><h4 style="margin-top:14px">🌍 Real-world case</h4><div style="white-space:pre-wrap;font-size:13px;line-height:1.7">${fsEscape(d.real_world_case||'')}</div><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><button class="btn btn-primary btn-sm" onclick="fsMarkLesson()">✓ Mark lesson studied</button><button class="btn btn-secondary btn-sm" onclick="window.open('https://www.youtube.com/results?search_query='+encodeURIComponent(${JSON.stringify(d.video_search||fsCurrentCourse.title+' tutorial')}),'_blank')">▶ Find example videos</button><button class="btn btn-secondary btn-sm" onclick="fsSpeakLesson()">🔊 Play audio lesson</button></div></div>`;const p=document.getElementById('fs-practice');p.innerHTML=`<div class="card"><div style="font-size:16px;font-weight:800">🛠️ Practical problem-solving lab</div><div style="font-size:13px;white-space:pre-wrap;line-height:1.7;margin:10px 0">${fsEscape(d.practice_task||'')}</div><details style="margin:10px 0"><summary style="cursor:pointer;font-weight:700;color:var(--violet)">Show solution guide</summary><div style="white-space:pre-wrap;font-size:13px;line-height:1.7;padding:10px 0">${fsEscape(d.solution_guide||'')}</div></details><textarea id="fs-practice-answer" class="input" rows="4" placeholder="Write your solution, upload notes later, or describe what you built..."></textarea><button class="btn btn-primary btn-sm" style="margin-top:9px" onclick="fsSubmitPractice()">Submit practical work</button><div id="fs-practice-feedback" style="font-size:12px;margin-top:8px"></div></div>`;const q=document.getElementById('fs-quiz');q.innerHTML=`<div class="card"><div style="font-size:16px;font-weight:800">🧠 Knowledge check</div><div id="fs-quiz-questions" style="margin-top:12px">${(d.quiz||[]).map((x,i)=>`<div style="padding:12px 0;border-bottom:1px solid var(--border)"><b>${i+1}. ${fsEscape(x.question)}</b>${(x.options||[]).map((o,j)=>`<label style="display:block;padding:7px;font-size:13px"><input type="radio" name="fsq${i}" value="${j}"> ${fsEscape(o)}</label>`).join('')}<div id="fsqexp${i}" style="font-size:11px;color:var(--muted)"></div></div>`).join('')}</div><button class="btn btn-primary" style="margin-top:12px" onclick="fsGradeQuiz()">Submit assessment</button><div id="fs-quiz-score" style="margin-top:10px;font-weight:700"></div></div>`;}
 function fsMarkLesson(){if(!fsCurrentCourse)return;fsProgress[fsCurrentCourse.id].lesson=true;fsSave();toast('Lesson marked as studied. Keep going!');fsCheckCompletion();}
 function fsSubmitPractice(){const a=document.getElementById('fs-practice-answer')?.value.trim(),f=document.getElementById('fs-practice-feedback');if(!a||a.length<20){f.textContent='Please write at least a short explanation of your work (20 characters or more).';return;}fsProgress[fsCurrentCourse.id].practice=true;fsProgress[fsCurrentCourse.id].practiceText=a;fsSave();f.textContent='✓ Practical work submitted. Your learning checklist is updated.';fsCheckCompletion();}
 function fsGradeQuiz(){if(!fsLessonData||!fsCurrentCourse)return;const qs=fsLessonData.quiz||[];let score=0;qs.forEach((q,i)=>{const v=document.querySelector(`input[name="fsq${i}"]:checked`),ok=v&&Number(v.value)===Number(q.answer_index);if(ok)score++;const e=document.getElementById('fsqexp'+i);if(e)e.textContent=(ok?'✓ Correct. ':'✕ Review: ')+(q.explanation||'');});const pct=qs.length?Math.round(score/qs.length*100):0;fsProgress[fsCurrentCourse.id].quiz=pct>=70;fsProgress[fsCurrentCourse.id].score=pct;fsSave();document.getElementById('fs-quiz-score').textContent=`Your score: ${score}/${qs.length} (${pct}%). ${pct>=70?'✓ Assessment passed!':'You need 70% to pass. Review the lesson and try again.'}`;fsCheckCompletion();}
-function fsCheckCompletion(){const p=fsProgress[fsCurrentCourse.id]||{};const area=document.getElementById('fs-certificate-area');if(p.lesson&&p.practice&&p.quiz){if(!fsCompleted.includes(fsCurrentCourse.id))fsCompleted.push(fsCurrentCourse.id);fsSave();area.innerHTML=`<div class="card" style="background:#ecfdf5;border-color:#86efac"><div style="font-size:18px;font-weight:800;color:#047857">🎉 Course requirements completed!</div><p style="font-size:13px;margin:7px 0">You completed the lesson, submitted practical work and passed the assessment. Your StudyMind Pro certificate is ready.</p><button class="btn btn-primary" onclick="fsIssueCertificate('${fsCurrentCourse.id}')">🏆 Generate certificate</button></div>`;fsRenderCatalog();}else{area.innerHTML=`<div class="card" style="font-size:12px">Completion checklist: ${p.lesson?'✓':'○'} Lesson studied · ${p.practice?'✓':'○'} Practical work submitted · ${p.quiz?'✓':'○'} Assessment passed (70%+)</div>`;}}
+function fsCheckCompletion(){const p=fsProgress[fsCurrentCourse.id]||{};const area=document.getElementById('fs-certificate-area');if(p.lesson&&p.practice&&p.quiz){if(!fsCompleted.includes(fsCurrentCourse.id))fsCompleted.push(fsCurrentCourse.id);fsSave();area.innerHTML=`<div class="card" style="background:#ecfdf5;border-color:#86efac"><div style="font-size:18px;font-weight:800;color:#047857">🎉 Course requirements completed!</div><p style="font-size:13px;margin:7px 0">You completed the lesson, submitted practical work and passed the assessment. Your Lumo Pro certificate is ready.</p><button class="btn btn-primary" onclick="fsIssueCertificate('${fsCurrentCourse.id}')">🏆 Generate certificate</button></div>`;fsRenderCatalog();}else{area.innerHTML=`<div class="card" style="font-size:12px">Completion checklist: ${p.lesson?'✓':'○'} Lesson studied · ${p.practice?'✓':'○'} Practical work submitted · ${p.quiz?'✓':'○'} Assessment passed (70%+)</div>`;}}
 function fsSpeakLesson(){if(!fsLessonData){toast('Generate the AI session first.');return;}if(!('speechSynthesis'in window)){toast('Audio playback is not supported in this browser.');return;}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(fsLessonData.audio_script||fsLessonData.explanation||'');u.rate=.95;speechSynthesis.speak(u);}
-function fsIssueCertificate(id){const c=FS_COURSES.find(x=>x.id===id);if(!c||!fsCompleted.includes(id))return;const learner=(state&&state.name)||document.getElementById('user-display-name')?.textContent||'Learner';const cert='SMP-FS-'+String(c.number).padStart(3,'0')+'-'+Date.now().toString(36).toUpperCase();const date=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});const w=window.open('','_blank');if(!w){toast('Please allow pop-ups to print your certificate.');return;}w.document.write(`<!doctype html><html><head><title>StudyMind Pro Certificate</title><style>body{font-family:Arial,sans-serif;background:#f1f5f9;padding:35px}.cert{max-width:900px;margin:30px auto;background:white;border:12px double #0f766e;padding:55px;text-align:center;color:#102a2a}.brand{font-size:18px;letter-spacing:4px;color:#0f766e;font-weight:bold}.title{font-family:Georgia,serif;font-size:42px;margin:28px 0 8px}.name{font-size:32px;color:#0f766e;border-bottom:1px solid #94a3b8;display:inline-block;padding:10px 45px}.course{font-size:24px;font-weight:bold;margin:20px}.small{color:#475569;font-size:13px}.seal{margin:28px auto;border:2px solid #0f766e;border-radius:50%;width:105px;height:105px;display:flex;align-items:center;justify-content:center;color:#0f766e;font-weight:bold}@media print{body{background:white;padding:0}.cert{margin:0;max-width:none;min-height:85vh}}</style></head><body><div class="cert"><div class="brand">STUDYMIND PRO</div><div class="title">Certificate of Completion</div><p>This certificate is proudly presented to</p><div class="name">${fsEscape(learner)}</div><p style="margin-top:24px">for successfully completing the practical learning pathway</p><div class="course">${fsEscape(c.title)}</div><p class="small">${fsEscape(c.track)} · Future Skills Academy</p><div class="seal">SMP<br>VERIFIED*</div><p>Issued by StudyMind Pro · ${date}</p><p class="small">Certificate ID: ${cert}</p><p class="small">*StudyMind Pro-issued certificate. Verify against the platform's official certificate register when online verification is enabled. Not a third-party accreditation.</p><button onclick="window.print()" style="padding:12px 22px;background:#0f766e;color:white;border:0;border-radius:8px;cursor:pointer">Print / Save as PDF</button></div></body></html>`);w.document.close();}
+function fsIssueCertificate(id){const c=FS_COURSES.find(x=>x.id===id);if(!c||!fsCompleted.includes(id))return;const learner=(state&&state.name)||document.getElementById('user-display-name')?.textContent||'Learner';const cert='SMP-FS-'+String(c.number).padStart(3,'0')+'-'+Date.now().toString(36).toUpperCase();const date=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});const w=window.open('','_blank');if(!w){toast('Please allow pop-ups to print your certificate.');return;}w.document.write(`<!doctype html><html><head><title>Lumo Pro Certificate</title><style>body{font-family:Arial,sans-serif;background:#f1f5f9;padding:35px}.cert{max-width:900px;margin:30px auto;background:white;border:12px double #0f766e;padding:55px;text-align:center;color:#102a2a}.brand{font-size:18px;letter-spacing:4px;color:#0f766e;font-weight:bold}.title{font-family:Georgia,serif;font-size:42px;margin:28px 0 8px}.name{font-size:32px;color:#0f766e;border-bottom:1px solid #94a3b8;display:inline-block;padding:10px 45px}.course{font-size:24px;font-weight:bold;margin:20px}.small{color:#475569;font-size:13px}.seal{margin:28px auto;border:2px solid #0f766e;border-radius:50%;width:105px;height:105px;display:flex;align-items:center;justify-content:center;color:#0f766e;font-weight:bold}@media print{body{background:white;padding:0}.cert{margin:0;max-width:none;min-height:85vh}}</style></head><body><div class="cert"><div class="brand">lumo PRO</div><div class="title">Certificate of Completion</div><p>This certificate is proudly presented to</p><div class="name">${fsEscape(learner)}</div><p style="margin-top:24px">for successfully completing the practical learning pathway</p><div class="course">${fsEscape(c.title)}</div><p class="small">${fsEscape(c.track)} · Future Skills Academy</p><div class="seal">SMP<br>VERIFIED*</div><p>Issued by Lumo Pro · ${date}</p><p class="small">Certificate ID: ${cert}</p><p class="small">*Lumo Pro-issued certificate. Verify against the platform's official certificate register when online verification is enabled. Not a third-party accreditation.</p><button onclick="window.print()" style="padding:12px 22px;background:#0f766e;color:white;border:0;border-radius:8px;cursor:pointer">Print / Save as PDF</button></div></body></html>`);w.document.close();}
 // initialize only when app navigation opens the academy
 const _fsOriginalGoPage=window.goPage;
 if(typeof _fsOriginalGoPage==='function'){window.goPage=function(page,btn){const r=_fsOriginalGoPage.apply(this,arguments);if(page==='future-skills')fsInit();return r;};}
 
 
 // ═══════════════════════════════════════════════════════════════════════
-// STUDYMIND PRO PRODUCTION BACKEND — Supabase Auth + Gemini Edge Function
+// lumo PRO PRODUCTION BACKEND — Supabase Auth + Gemini Edge Function
 // Browser contains only the Supabase public key. Provider secrets stay server-side.
 // ═══════════════════════════════════════════════════════════════════════
 var _smpOriginalDoLogin = doLogin;
@@ -6628,17 +6628,17 @@ var fsSessionId = null;
 var fsCloudCertificates = [];
 
 function smpBackendConfigured(){
-  const c=window.STUDYMIND_SUPABASE_CONFIG||{};
+  const c=window.lumo_SUPABASE_CONFIG||{};
   return !!(window.supabase&&window.supabase.createClient&&c.url&&c.anonKey&&!String(c.url).includes('YOUR_PROJECT_REF')&&!String(c.anonKey).includes('YOUR_SUPABASE'));
 }
 function smpClient(){
   if(!smpBackendConfigured()) return null;
-  if(!_smpClient){const c=window.STUDYMIND_SUPABASE_CONFIG;_smpClient=window.supabase.createClient(c.url,c.anonKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});}
+  if(!_smpClient){const c=window.lumo_SUPABASE_CONFIG;_smpClient=window.supabase.createClient(c.url,c.anonKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});}
   return _smpClient;
 }
 async function smpApi(action,payload={}){
   const sb=smpClient();
-  if(!sb) throw new Error('StudyMind Pro backend is not configured yet. Please complete the Supabase setup steps in the deployment guide.');
+  if(!sb) throw new Error('Lumo Pro backend is not configured yet. Please complete the Supabase setup steps in the deployment guide.');
   const {data,error}=await sb.functions.invoke('academy-api',{body:{action,...payload}});
   if(error){let msg=error.message||'Backend request failed.';try{if(error.context&&typeof error.context.json==='function'){const b=await error.context.json();msg=b.error||msg;}}catch(e){}throw new Error(msg);}
   if(data&&data.error) throw new Error(data.error);
@@ -6727,12 +6727,12 @@ window.addEventListener('load',()=>{updateApiKeyStatus();smpInitAuth().catch(e=>
 
 // All app AI requests go through the authenticated Edge Function. No browser API keys.
 window.getApiKey=function(){return '';};
-window.saveApiKey=function(){toast('StudyMind Pro manages AI credentials securely. You do not need to enter a personal API key.');};
+window.saveApiKey=function(){toast('Lumo Pro manages AI credentials securely. You do not need to enter a personal API key.');};
 window.updateApiKeyStatus=function(){const el=document.getElementById('api-key-status');if(el)el.textContent=smpBackendConfigured()?'🔒 Secure backend configured — sign in to use AI.':'⚠️ Backend setup pending — administrator must connect Supabase.';};
 window.callFreeAI = async function(messages,systemPrompt,maxTokens){
   const sb=smpClient();
   if(!sb)throw new Error('Connect Supabase to enable secure AI services.');
-  const data=await smpApi('chat',{messages:Array.isArray(messages)?messages:[],system_prompt:systemPrompt||'You are a helpful StudyMind Pro tutor.',max_tokens:maxTokens||1600});
+  const data=await smpApi('chat',{messages:Array.isArray(messages)?messages:[],system_prompt:systemPrompt||'You are a helpful Lumo Pro tutor.',max_tokens:maxTokens||1600});
   return data.text;
 };
 
@@ -6759,7 +6759,7 @@ window.fsOpenCourse = function(id){
 window.fsGenerateLesson = async function(){
   if(!fsCurrentCourse)return;
   const btn=document.getElementById('fs-generate-btn'),out=document.getElementById('fs-lesson');
-  if(!smpClient()||!_smpAuthReady){out.innerHTML='<div class="card" style="color:#b45309">Please sign in to your StudyMind Pro account to generate and save this AI lesson.</div>';return;}
+  if(!smpClient()||!_smpAuthReady){out.innerHTML='<div class="card" style="color:#b45309">Please sign in to your Lumo Pro account to generate and save this AI lesson.</div>';return;}
   btn.disabled=true;btn.textContent='⏳ Your AI instructor is preparing the lesson…';
   out.innerHTML='<div class="card">Generating a complete lesson, worked example, practical task, solution guide and five-question assessment…</div>';
   try{
@@ -6807,8 +6807,8 @@ window.fsIssueCertificate = async function(id){
     const verifyUrl=window.location.origin+'/verify.html?code='+encodeURIComponent(cert.cert_code);
     const date=new Date(cert.issued_at).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
     if(!w)throw new Error('Allow pop-ups to print your certificate.');
-    w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>StudyMind Pro Certificate</title><style>body{font-family:Arial,sans-serif;background:#f1f5f9;padding:35px}.cert{max-width:900px;margin:30px auto;background:white;border:12px double #0f766e;padding:55px;text-align:center;color:#102a2a}.brand{font-size:18px;letter-spacing:4px;color:#0f766e;font-weight:bold}.title{font-family:Georgia,serif;font-size:42px;margin:28px 0 8px}.name{font-size:32px;color:#0f766e;border-bottom:1px solid #94a3b8;display:inline-block;padding:10px 45px}.course{font-size:24px;font-weight:bold;margin:20px}.small{color:#475569;font-size:13px}.seal{margin:28px auto;border:2px solid #0f766e;border-radius:50%;width:105px;height:105px;display:flex;align-items:center;justify-content:center;color:#0f766e;font-weight:bold}@media print{body{background:white;padding:0}.cert{margin:0;max-width:none;min-height:85vh}button{display:none}}</style></head><body><div class="cert"><div class="brand">STUDYMIND PRO · FUTURE SKILLS ACADEMY</div><div class="title">Certificate of Completion</div><p>This certificate is proudly presented to</p><div class="name">${fsEscape(cert.learner_name)}</div><p style="margin-top:24px">for successfully completing the practical learning pathway</p><div class="course">${fsEscape(cert.course_title)}</div><p class="small">${fsEscape(cert.track)} · Assessment score: ${Number(cert.score)}%</p><div class="seal">SMP<br>ISSUED</div><p>Issued by StudyMind Pro · ${date}</p><p class="small">Certificate ID: ${fsEscape(cert.cert_code)}</p><p class="small">Verify this certificate: <a href="${verifyUrl}">${verifyUrl}</a></p><p class="small">StudyMind Pro-issued learning certificate. This is not a university, government or third-party accreditation.</p><button onclick="window.print()" style="padding:12px 22px;background:#0f766e;color:white;border:0;border-radius:8px;cursor:pointer">Print / Save as PDF</button></div></body></html>`);
-    w.document.close();toast('Your StudyMind Pro certificate has been issued and registered.');
+    w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Lumo Pro Certificate</title><style>body{font-family:Arial,sans-serif;background:#f1f5f9;padding:35px}.cert{max-width:900px;margin:30px auto;background:white;border:12px double #0f766e;padding:55px;text-align:center;color:#102a2a}.brand{font-size:18px;letter-spacing:4px;color:#0f766e;font-weight:bold}.title{font-family:Georgia,serif;font-size:42px;margin:28px 0 8px}.name{font-size:32px;color:#0f766e;border-bottom:1px solid #94a3b8;display:inline-block;padding:10px 45px}.course{font-size:24px;font-weight:bold;margin:20px}.small{color:#475569;font-size:13px}.seal{margin:28px auto;border:2px solid #0f766e;border-radius:50%;width:105px;height:105px;display:flex;align-items:center;justify-content:center;color:#0f766e;font-weight:bold}@media print{body{background:white;padding:0}.cert{margin:0;max-width:none;min-height:85vh}button{display:none}}</style></head><body><div class="cert"><div class="brand">lumo PRO · FUTURE SKILLS ACADEMY</div><div class="title">Certificate of Completion</div><p>This certificate is proudly presented to</p><div class="name">${fsEscape(cert.learner_name)}</div><p style="margin-top:24px">for successfully completing the practical learning pathway</p><div class="course">${fsEscape(cert.course_title)}</div><p class="small">${fsEscape(cert.track)} · Assessment score: ${Number(cert.score)}%</p><div class="seal">SMP<br>ISSUED</div><p>Issued by Lumo Pro · ${date}</p><p class="small">Certificate ID: ${fsEscape(cert.cert_code)}</p><p class="small">Verify this certificate: <a href="${verifyUrl}">${verifyUrl}</a></p><p class="small">Lumo Pro-issued learning certificate. This is not a university, government or third-party accreditation.</p><button onclick="window.print()" style="padding:12px 22px;background:#0f766e;color:white;border:0;border-radius:8px;cursor:pointer">Print / Save as PDF</button></div></body></html>`);
+    w.document.close();toast('Your Lumo Pro certificate has been issued and registered.');
   }catch(e){if(w)w.close();toast('Certificate not issued: '+e.message);}
 };
 
@@ -6816,7 +6816,7 @@ window.fsIssueCertificate = async function(id){
 
 // ═══════════════════════════════════════════════════════════════════════
 // FUTURE SKILLS ACADEMY — hands-on learning studio experience
-// Original StudyMind Pro interface inspired by modern practical-learning platforms.
+// Original Lumo Pro interface inspired by modern practical-learning platforms.
 // ═══════════════════════════════════════════════════════════════════════
 window.fsSetStudioTab = function(tab){
   const lesson=document.getElementById('fs-lesson');if(lesson)lesson.style.display='block';
@@ -6829,8 +6829,8 @@ window.fsFlipCard = function(i){const front=document.getElementById('fs-flash-fr
 window.fsDownloadWorksheet = function(){
   if(!fsLessonData||!fsCurrentCourse)return;
   const d=fsLessonData,c=fsCurrentCourse;
-  const content=[`STUDYMIND PRO — FUTURE SKILLS ACADEMY`,`Course: ${c.title}`,`Track: ${c.track}`,``,`LEARNING OBJECTIVES`,...(d.learning_objectives||[]).map((x,i)=>`${i+1}. ${x}`),``,`LESSON`,d.explanation||'',``,`WORKED EXAMPLE`,d.worked_example||'',``,`PRACTICAL TASK`,d.practice_task||'',``,`SOLUTION GUIDE`,d.solution_guide||'',``,`MY NOTES`,``,``,`StudyMind Pro learning worksheet`].join('\n');
-  const blob=new Blob([content],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='StudyMind-'+c.id+'-worksheet.txt';a.click();URL.revokeObjectURL(url);
+  const content=[`lumo PRO — FUTURE SKILLS ACADEMY`,`Course: ${c.title}`,`Track: ${c.track}`,``,`LEARNING OBJECTIVES`,...(d.learning_objectives||[]).map((x,i)=>`${i+1}. ${x}`),``,`LESSON`,d.explanation||'',``,`WORKED EXAMPLE`,d.worked_example||'',``,`PRACTICAL TASK`,d.practice_task||'',``,`SOLUTION GUIDE`,d.solution_guide||'',``,`MY NOTES`,``,``,`Lumo Pro learning worksheet`].join('\n');
+  const blob=new Blob([content],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='Lumo-'+c.id+'-worksheet.txt';a.click();URL.revokeObjectURL(url);
 };
 window.fsRenderLesson = function(){
   const d=fsLessonData;if(!d)return;
@@ -6854,7 +6854,7 @@ window.fsRenderLesson = function(){
       <div style="margin-top:18px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-primary btn-sm" onclick="fsMarkLesson()">✓ Mark lesson studied</button><button class="btn btn-secondary btn-sm" onclick="fsSetStudioTab('practice')">Continue to practice →</button></div>
     </div>`;
   const practice=document.getElementById('fs-practice');
-  practice.innerHTML=`<div class="card"><div style="font-size:17px;font-weight:850">🧪 Practical problem-solving lab</div><p style="font-size:12px;color:#64748b;margin:5px 0 12px">Apply the concept to a realistic task. Your submission is saved to your StudyMind Pro account.</p><div style="background:#f0fdfa;padding:14px;border-radius:11px;font-size:14px;line-height:1.8">${esc(d.practice_task||'')}</div><details style="margin:14px 0"><summary style="cursor:pointer;font-weight:750;color:#0f766e">Need a hint? Reveal the solution guide</summary><div style="white-space:pre-wrap;font-size:13px;line-height:1.8;padding:12px;background:#f8fafc;border-radius:9px;margin-top:8px">${esc(d.solution_guide||'')}</div></details><label for="fs-practice-answer" style="font-weight:750;font-size:13px;display:block;margin-bottom:7px">Your practical submission</label><textarea id="fs-practice-answer" class="input" rows="6" placeholder="Explain your approach, show your work, or describe what you built..."></textarea><button class="btn btn-primary" style="margin-top:10px" onclick="fsSubmitPractice()">Submit practical work</button><div id="fs-practice-feedback" style="font-size:12px;margin-top:9px"></div></div>`;
+  practice.innerHTML=`<div class="card"><div style="font-size:17px;font-weight:850">🧪 Practical problem-solving lab</div><p style="font-size:12px;color:#64748b;margin:5px 0 12px">Apply the concept to a realistic task. Your submission is saved to your Lumo Pro account.</p><div style="background:#f0fdfa;padding:14px;border-radius:11px;font-size:14px;line-height:1.8">${esc(d.practice_task||'')}</div><details style="margin:14px 0"><summary style="cursor:pointer;font-weight:750;color:#0f766e">Need a hint? Reveal the solution guide</summary><div style="white-space:pre-wrap;font-size:13px;line-height:1.8;padding:12px;background:#f8fafc;border-radius:9px;margin-top:8px">${esc(d.solution_guide||'')}</div></details><label for="fs-practice-answer" style="font-weight:750;font-size:13px;display:block;margin-bottom:7px">Your practical submission</label><textarea id="fs-practice-answer" class="input" rows="6" placeholder="Explain your approach, show your work, or describe what you built..."></textarea><button class="btn btn-primary" style="margin-top:10px" onclick="fsSubmitPractice()">Submit practical work</button><div id="fs-practice-feedback" style="font-size:12px;margin-top:9px"></div></div>`;
   const terms=d.key_terms||[];
   document.getElementById('fs-flashcards').innerHTML=`<div class="card"><div style="font-size:17px;font-weight:850">🗂️ Active-recall flashcards</div><p style="font-size:12px;color:#64748b;margin:5px 0 14px">Try to explain each term before revealing its meaning.</p>${terms.map((x,i)=>`<button onclick="fsFlipCard(${i})" style="display:block;text-align:left;width:100%;padding:14px;margin:8px 0;background:#fff;border:1px solid #cbd5e1;border-radius:12px;cursor:pointer"><span style="font-size:10px;font-weight:800;color:#0f766e">CARD ${i+1} · TAP TO FLIP</span><div id="fs-flash-front-${i}" style="font-size:15px;font-weight:800;margin-top:7px">${esc(x.term)} <span style="float:right;color:#64748b">＋</span></div><div id="fs-flash-back-${i}" style="display:none;font-size:13px;line-height:1.7;margin-top:7px;color:#334155">${esc(x.meaning)}</div></button>`).join('')||'<p>No flashcards were generated for this lesson.</p>'}</div>`;
   const q=document.getElementById('fs-quiz');
@@ -6908,7 +6908,7 @@ window.fsOpenCourse=function(id){
   <div style="background:linear-gradient(135deg,#059669,#7c3aed);padding:13px 16px;display:flex;align-items:center;justify-content:space-between;">
     <div style="display:flex;align-items:center;gap:9px;">
       <div style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:16px;">🤖</div>
-      <div><div style="font-size:13px;font-weight:800;color:#fff;">StudyMind Support</div><div style="font-size:10px;color:rgba(255,255,255,0.6);">● AI Powered · Always online</div></div>
+      <div><div style="font-size:13px;font-weight:800;color:#fff;">Lumo Support</div><div style="font-size:10px;color:rgba(255,255,255,0.6);">● AI Powered · Always online</div></div>
     </div>
     <button onclick="toggleFeedbackChat()" style="background:rgba(255,255,255,0.15);border:none;color:#fff;width:26px;height:26px;border-radius:50%;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;">✕</button>
   </div>
