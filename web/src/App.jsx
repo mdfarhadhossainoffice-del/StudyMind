@@ -16,7 +16,7 @@ function AuthPanel({ onDone }) {
     e.preventDefault(); setBusy(true); setMessage('');
     try {
       if (mode === 'forgot') {
-        const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin });
+        const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: 'https://lumo-learning-wzyp.onrender.com' });
         if (error) throw error;
         setMessage('If an account exists for this email, a password reset link has been sent. Check your inbox and spam folder.');
         setMode('login');
